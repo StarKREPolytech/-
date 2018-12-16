@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ihb/IgorProjects/projects/osLab/main.cpp
+string.h
+-
+unistd.h
+-
+stdio.h
+-
+stdlib.h
+-
+sys/mman.h
+-
+sys/stat.h
+-
+ctime
+-
+iostream
+-
+
