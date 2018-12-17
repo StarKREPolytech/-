@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/ihb/IgorProjects/projects/osLab/main.cpp
+/home/konstantin/CLionProjects/Os/main.cpp
 string.h
 -
 unistd.h
@@ -15,12 +15,24 @@ stdio.h
 -
 stdlib.h
 -
+stdint.h
+-
+stdbool.h
+-
 sys/mman.h
 -
 sys/stat.h
 -
+sys/socket.h
+-
 ctime
 -
 iostream
+-
+fcntl.h
+-
+netinet/in.h
+-
+arpa/inet.h
 -
 

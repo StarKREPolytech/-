@@ -1,8 +1,9 @@
 #include <string.h>
 #include <unistd.h>
-
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
+#include <stdbool.h>
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <sys/socket.h>
@@ -14,42 +15,51 @@
 
 #define PORT 8080
 
+#define BUF_SIZE 1024
+
 #define TARGET_FILE_PATH "../io/sample1.txt"
 
 #define CHANNEL_NAME "ARCHIVE_CHANNEL"
 
-void *create_shared_memory(const size_t size)
-{
+void *create_shared_memory(const size_t size) {
     int protection = PROT_READ | PROT_WRITE;
     int visibility = MAP_ANONYMOUS | MAP_SHARED;
-    return mmap(nullptr, size, protection, visibility, 0, 0);
+    void *memory = mmap(nullptr, size, protection, visibility, 0, 0);
+    memset(memory, '\0', size);
+    return memory;
 }
+
 
 class file_archiver {
 
 public:
 
-    explicit file_archiver(const int read_gate, const int named_channel)
-    {
+    explicit file_archiver(const int read_gate, const int named_channel) {
         this->read_gate = read_gate;
         this->named_channel = named_channel;
     }
 
-    void start() const
-    {
+    void start() const {
         printf("Archiver has started!\n");
-        char buffer[101];
+        char buffer[BUF_SIZE];
         int pointer = 0;
         while (true) {
-            bzero(buffer, 100);
-            pointer = read(this->read_gate, buffer, 100);
+            printf("arch");
+            bzero(buffer, BUF_SIZE);
+            pointer = read(this->read_gate, buffer, BUF_SIZE);
+
+
             FILE *output_file = fopen("../io/sample2.txt", "w");
             fwrite(buffer, sizeof(char), pointer, output_file);
             fclose(output_file);
+            FILE *input_file = fopen("../io/sample2.txt", "r");
+            fclose(input_file);
+
             //TODO ZIP:
-            write(this->named_channel, buffer, 100);
+            write(this->named_channel, buffer, BUF_SIZE);
         }
     }
+
 
 
 private:
@@ -63,26 +73,26 @@ class file_listener {
 
 public:
 
-    explicit file_listener(const int write_gate)
-    {
+    explicit file_listener(const int write_gate) {
         this->write_gate = write_gate;
     }
 
     virtual ~file_listener() = default;
 
-    void start() const
-    {
+    void start() const {
         printf("Listener has started!\n");
         while (true) {
             sleep(10);
+            printf("list");
             bool has_file_changed = this->last_modified_file
                                     < this->get_file_last_modified_time(TARGET_FILE_PATH);
             if (has_file_changed) {
                 FILE *target_file = fopen(TARGET_FILE_PATH, "r");
                 size_t pointer = 0;
-                char buffer[256];
+                char buffer[BUF_SIZE];
+                bzero(buffer, BUF_SIZE);
                 while (!feof(target_file)) {
-                    pointer = fread(buffer, sizeof(char), 256, target_file);
+                    pointer = fread(buffer, sizeof(char), BUF_SIZE, target_file);
                     //Notify archiver:
                     write(this->write_gate, buffer, pointer);
                     //Change shared memory:
@@ -92,8 +102,7 @@ public:
         }
     }
 
-    void set_shared_memory_ptr(void *shared_memory_ptr)
-    {
+    void set_shared_memory_ptr(void *shared_memory_ptr) {
         this->shared_memory_ptr = shared_memory_ptr;
     }
 
@@ -105,8 +114,7 @@ private:
 
     void *shared_memory_ptr = nullptr;
 
-    static long get_file_last_modified_time(const char *path)
-    {
+    static long get_file_last_modified_time(const char *path) {
         struct stat attr{};
         stat(path, &attr);
         return attr.st_mtime;
@@ -117,28 +125,25 @@ class file_visualizer {
 
 public:
 
-    explicit file_visualizer(const int named_channel)
-    {
+    explicit file_visualizer(const int named_channel) {
         this->named_channel = named_channel;
     }
 
     virtual ~file_visualizer() = default;
 
-    void set_shared_memory_ptr(void *shared_memory_ptr)
-    {
+    void set_shared_memory_ptr(void *shared_memory_ptr) {
         this->shared_memory_ptr = shared_memory_ptr;
     }
 
-    void start() const
-    {
+    void start() const {
         printf("Visualizer has started!\n");
         int pointer = 0;
-        char buffer[101];
+        char buffer[BUF_SIZE];
         while (true) {
             sleep(7);
-            printf("Personal data: %s\n", static_cast<char *>(this->shared_memory_ptr));
-            bzero(buffer, 100);
-            read(this->named_channel, buffer, 100);
+            printf("Personal actual data:   <%s>\n", static_cast<char *>(this->shared_memory_ptr));
+            bzero(buffer, BUF_SIZE);
+            read(this->named_channel, buffer, BUF_SIZE);
             printf("Archived personal data: <%s>\n", buffer);
             struct sockaddr_in server_address;
             const int sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -147,10 +152,10 @@ public:
             server_address.sin_port = htons(PORT);
             inet_pton(AF_INET, "127.0.0.1", &server_address.sin_addr);
             connect(sock, (struct sockaddr *) &server_address, sizeof(server_address));
-            send(sock, buffer, 100, 0);
-            bzero(buffer, 100);
-            read(sock, buffer, 1024);
-            printf("Response from server: <%s>\n", buffer);
+            send(sock, buffer, BUF_SIZE, 0);
+            bzero(buffer, BUF_SIZE);
+            read(sock, buffer, BUF_SIZE);
+            printf("Response from server:   <%s>\n", buffer);
         }
     }
 
@@ -165,19 +170,16 @@ class file_server {
 
 public:
 
-    explicit file_server()
-    {}
+    explicit file_server() {}
 
-    virtual ~file_server()
-    {}
+    virtual ~file_server() {}
 
-    void start() const
-    {
+    void start() const {
         printf("Server has started!\n");
         struct sockaddr_in address;
         int opt = 1;
         int addrlen = sizeof(address);
-        char buffer[1024] = {0};
+        char buffer[BUF_SIZE] = {0};
 
         const int server_fd = socket(AF_INET, SOCK_STREAM, 0);
 
@@ -187,22 +189,23 @@ public:
         address.sin_port = htons(PORT);
 
         bind(server_fd, (struct sockaddr *) &address, sizeof(address));
-        listen(server_fd, 1000);
+        while (true) {
+            sleep(5);
+            listen(server_fd, 2);
 
-        const int new_socket = accept(server_fd, (struct sockaddr *) &address, (socklen_t *) &addrlen);
+            const int new_socket = accept(server_fd, (struct sockaddr *) &address, (socklen_t *) &addrlen);
 
-        read(new_socket, buffer, 1024);
-        const unsigned space_count = this->get_space_count(buffer);
-        const char *result = int_to_string(space_count);
-        printf("Server result: %s\n", result);
-        send(new_socket, result, 10, 0);
+            read(new_socket, buffer, BUF_SIZE);
+            const unsigned space_count = this->get_space_count(buffer);
+            const char *result = int_to_string(space_count);
+            send(new_socket, result, 10, 0);
+        }
     }
 
 
 private:
 
-    unsigned get_space_count(const char *string) const
-    {
+    unsigned get_space_count(const char *string) const {
         unsigned space_counter = 0;
         const unsigned str_length = strlen(string);
         for (unsigned i = 0; i < str_length; ++i) {
@@ -215,8 +218,7 @@ private:
     }
 
 
-    char *int_to_string(const int src) const
-    {
+    char *int_to_string(const int src) const {
         auto division = src;
         unsigned int_size_in_string = 0;
         while (division != 0) {
@@ -252,15 +254,13 @@ private:
     }
 };
 
-int *create_anonymous_pipeline()
-{
+int *create_anonymous_pipeline() {
     int *file_descriptor_pipeline = static_cast<int *>(calloc(2, sizeof(int)));
     pipe(file_descriptor_pipeline);
     return file_descriptor_pipeline;
 }
 
-int main()
-{
+int main() {
     const int *anonymous_pipeline = create_anonymous_pipeline();
     const int read_gate = anonymous_pipeline[0];
     const int write_gate = anonymous_pipeline[1];
@@ -275,7 +275,7 @@ int main()
     if (fork() == 0) {
         archiver->start();
     } else {
-        void *shared_memory = create_shared_memory(1024);
+        void *shared_memory = create_shared_memory(BUF_SIZE);
         listener->set_shared_memory_ptr(shared_memory);
         visualizer->set_shared_memory_ptr(shared_memory);
         if (fork() == 0) {

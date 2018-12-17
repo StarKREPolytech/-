@@ -8,98 +8,98 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/ihb/IgorProjects/projects/osLab/cmake-build-debug"/>
+				<Option working_dir="/home/konstantin/CLionProjects/Os/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/ihb/IgorProjects/projects/osLab/cmake-build-debug"/>
+				<Option working_dir="/home/konstantin/CLionProjects/Os/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/home/ihb/IgorProjects/projects/osLab/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="osLab">
-				<Option output="/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/osLab" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/ihb/IgorProjects/projects/osLab/cmake-build-debug"/>
+				<Option output="/home/konstantin/CLionProjects/Os/cmake-build-debug/osLab" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/konstantin/CLionProjects/Os/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/include/c++/7"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
-					<Add directory="/usr/include/c++/7/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 osLab"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 osLab"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="osLab/fast">
-				<Option output="/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/osLab" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/ihb/IgorProjects/projects/osLab/cmake-build-debug"/>
+				<Option output="/home/konstantin/CLionProjects/Os/cmake-build-debug/osLab" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/konstantin/CLionProjects/Os/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/include/c++/7"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
-					<Add directory="/usr/include/c++/7/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 osLab/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/osLab/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 osLab/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/konstantin/CLionProjects/Os/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/ihb/IgorProjects/projects/osLab/header/component_archiver.h">
+		<Unit filename="/home/konstantin/CLionProjects/Os/header/component_archiver.h">
 			<Option target="osLab"/>
 		</Unit>
-		<Unit filename="/home/ihb/IgorProjects/projects/osLab/header/component_programmer.h">
+		<Unit filename="/home/konstantin/CLionProjects/Os/header/component_programmer.h">
 			<Option target="osLab"/>
 		</Unit>
-		<Unit filename="/home/ihb/IgorProjects/projects/osLab/header/component_reader.h">
+		<Unit filename="/home/konstantin/CLionProjects/Os/header/component_reader.h">
 			<Option target="osLab"/>
 		</Unit>
-		<Unit filename="/home/ihb/IgorProjects/projects/osLab/header/component_separator.h">
+		<Unit filename="/home/konstantin/CLionProjects/Os/header/component_separator.h">
 			<Option target="osLab"/>
 		</Unit>
-		<Unit filename="/home/ihb/IgorProjects/projects/osLab/main.cpp">
+		<Unit filename="/home/konstantin/CLionProjects/Os/main.cpp">
 			<Option target="osLab"/>
 		</Unit>
-		<Unit filename="/home/ihb/IgorProjects/projects/osLab/CMakeLists.txt">
+		<Unit filename="/home/konstantin/CLionProjects/Os/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
