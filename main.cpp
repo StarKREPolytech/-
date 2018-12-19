@@ -13,7 +13,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <m_client.h>
-#include <m_server.h>
+#include <m_middle_server.h>
 
 #define PORT 8080
 
@@ -25,9 +25,9 @@ int main()
     //Create client:
     m_client *client = new m_client();
     //Create server system:
-    m_server *middle_server = new m_server();
-    m_server *left_server = new m_server();
-    m_server *right_server = new m_server();
+    m_middle_server *middle_server = new m_middle_server();
+    m_middle_server *left_server = new m_middle_server();
+    m_middle_server *right_server = new m_middle_server();
     if (fork() == 0) {
         left_server->start();
     } else {

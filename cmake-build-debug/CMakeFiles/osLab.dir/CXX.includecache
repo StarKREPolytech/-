@@ -10,6 +10,8 @@
 functional
 -
 
+../header/m_server.h
+
 ../libs/lib4aio/lib4aio_cpp_headers/utils/file_utils/file_reader.h
 
 ../libs/lib4aio/lib4aio_cpp_headers/utils/log_utils/log_utils.h
@@ -42,5 +44,11 @@ arpa/inet.h
 functional
 -
 lib4aio/lib4aio_cpp_headers/utils/log_utils/log_utils.h
+-
+
+/home/ihb/IgorProjects/projects/Os/source/m_server.cpp
+m_server.h
+-
+zconf.h
 -
 

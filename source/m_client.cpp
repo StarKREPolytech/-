@@ -34,15 +34,11 @@ static long get_file_last_modified_time(const char *path)
     return attr.st_mtime;
 }
 
-m_client::m_client()
-{
+m_client::m_client() {
     this->last_modified_file = get_file_last_modified_time(TARGET_FILE_PATH);
 }
 
-m_client::~m_client()
-{
-
-}
+m_client::~m_client() = default;
 
 void m_client::start()
 {

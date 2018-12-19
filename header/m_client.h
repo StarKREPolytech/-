@@ -23,6 +23,8 @@ public:
 
 private:
 
+    bool is_started = false;
+
     long last_modified_file;
 
     void listen_file();
