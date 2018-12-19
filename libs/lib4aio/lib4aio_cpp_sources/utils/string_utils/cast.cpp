@@ -18,7 +18,7 @@ namespace lib4aio {
 
     const static int NANO = 9;
 
-    char *int_to_string(const int src)
+    char *long_to_string(const int src)
     {
         auto division = src;
         unsigned int_size_in_string = 0;
@@ -59,7 +59,7 @@ namespace lib4aio {
         auto sb = new str_builder();
         //Put int part:
         auto int_part = (int) src;
-        auto int_string = int_to_string(int_part);
+        auto int_string = long_to_string(int_part);
         sb->append(int_string);
         //Put dot:
         sb->append(DOT);

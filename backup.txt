@@ -196,7 +196,7 @@
 //    }
 //
 //
-//    char *int_to_string(const int src) const {
+//    char *long_to_string(const int src) const {
 //        auto division = src;
 //        unsigned int_size_in_string = 0;
 //        while (division != 0) {

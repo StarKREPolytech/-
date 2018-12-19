@@ -190,32 +190,32 @@ source/m_client.cpp.s:
 	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/m_client.cpp.s
 .PHONY : source/m_client.cpp.s
 
-source/m_server.o: source/m_server.cpp.o
+source/m_middle_server.o: source/m_middle_server.cpp.o
 
-.PHONY : source/m_server.o
+.PHONY : source/m_middle_server.o
 
 # target to build an object file
-source/m_server.cpp.o:
-	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/m_server.cpp.o
-.PHONY : source/m_server.cpp.o
+source/m_middle_server.cpp.o:
+	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/m_middle_server.cpp.o
+.PHONY : source/m_middle_server.cpp.o
 
-source/m_server.i: source/m_server.cpp.i
+source/m_middle_server.i: source/m_middle_server.cpp.i
 
-.PHONY : source/m_server.i
+.PHONY : source/m_middle_server.i
 
 # target to preprocess a source file
-source/m_server.cpp.i:
-	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/m_server.cpp.i
-.PHONY : source/m_server.cpp.i
+source/m_middle_server.cpp.i:
+	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/m_middle_server.cpp.i
+.PHONY : source/m_middle_server.cpp.i
 
-source/m_server.s: source/m_server.cpp.s
+source/m_middle_server.s: source/m_middle_server.cpp.s
 
-.PHONY : source/m_server.s
+.PHONY : source/m_middle_server.s
 
 # target to generate assembly for a file
-source/m_server.cpp.s:
-	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/m_server.cpp.s
-.PHONY : source/m_server.cpp.s
+source/m_middle_server.cpp.s:
+	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/m_middle_server.cpp.s
+.PHONY : source/m_middle_server.cpp.s
 
 # Help Target
 help:
@@ -233,9 +233,9 @@ help:
 	@echo "... source/m_client.o"
 	@echo "... source/m_client.i"
 	@echo "... source/m_client.s"
-	@echo "... source/m_server.o"
-	@echo "... source/m_server.i"
-	@echo "... source/m_server.s"
+	@echo "... source/m_middle_server.o"
+	@echo "... source/m_middle_server.i"
+	@echo "... source/m_middle_server.s"
 .PHONY : help
 
 

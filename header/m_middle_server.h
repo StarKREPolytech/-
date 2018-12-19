@@ -10,6 +10,10 @@ public:
     virtual ~m_middle_server();
 
     void start();
+
+private:
+
+    char *handle_request(const char *request);
 };
 
 #endif //M_SERVER_H

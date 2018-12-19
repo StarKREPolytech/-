@@ -26,13 +26,13 @@ int main()
     m_client *client = new m_client();
     //Create server system:
     m_middle_server *middle_server = new m_middle_server();
-    m_middle_server *left_server = new m_middle_server();
-    m_middle_server *right_server = new m_middle_server();
+//    m_middle_server *left_server = new m_middle_server();
+//    m_middle_server *right_server = new m_middle_server();
     if (fork() == 0) {
-        left_server->start();
+//        left_server->start();
     } else {
         if (fork() == 0) {
-            right_server->start();
+//            right_server->start();
         } else {
             if (fork() == 0) {
                 middle_server->start();

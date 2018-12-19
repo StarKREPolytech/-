@@ -6,7 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/ihb/IgorProjects/projects/Os/main.cpp" "/home/ihb/IgorProjects/projects/Os/cmake-build-debug/CMakeFiles/osLab.dir/main.cpp.o"
   "/home/ihb/IgorProjects/projects/Os/source/m_client.cpp" "/home/ihb/IgorProjects/projects/Os/cmake-build-debug/CMakeFiles/osLab.dir/source/m_client.cpp.o"
-  "/home/ihb/IgorProjects/projects/Os/source/m_server.cpp" "/home/ihb/IgorProjects/projects/Os/cmake-build-debug/CMakeFiles/osLab.dir/source/m_server.cpp.o"
+  "/home/ihb/IgorProjects/projects/Os/source/m_middle_server.cpp" "/home/ihb/IgorProjects/projects/Os/cmake-build-debug/CMakeFiles/osLab.dir/source/m_middle_server.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

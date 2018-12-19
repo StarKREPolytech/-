@@ -143,7 +143,7 @@
 		<Unit filename="/home/ihb/IgorProjects/projects/Os/header/m_client.h">
 			<Option target="osLab"/>
 		</Unit>
-		<Unit filename="/home/ihb/IgorProjects/projects/Os/header/m_server.h">
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/header/m_middle_server.h">
 			<Option target="osLab"/>
 		</Unit>
 		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/aio_explorer/aio_explorer.h">
@@ -320,7 +320,7 @@
 		<Unit filename="/home/ihb/IgorProjects/projects/Os/source/m_client.cpp">
 			<Option target="osLab"/>
 		</Unit>
-		<Unit filename="/home/ihb/IgorProjects/projects/Os/source/m_server.cpp">
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/source/m_middle_server.cpp">
 			<Option target="osLab"/>
 		</Unit>
 		<Unit filename="/home/ihb/IgorProjects/projects/Os/CMakeLists.txt">

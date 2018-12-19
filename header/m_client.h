@@ -29,9 +29,12 @@ private:
 
     void listen_file();
 
-    void call(const char *request, const unsigned size);
+    void call_by_socket(const char *request, const unsigned long size, const int m_socket);
 
-    char *receive();
+    void call_by_named_channel();
+
+    char *receive_by_socket(const int m_socket);
+
 };
 
 #endif //M_CLIENT_H

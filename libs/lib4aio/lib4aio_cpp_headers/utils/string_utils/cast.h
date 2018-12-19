@@ -3,7 +3,7 @@
 
 namespace lib4aio {
 
-    char *int_to_string(const int src);
+    char *long_to_string(const int src);
 
     char *double_to_string(const double src);
 
