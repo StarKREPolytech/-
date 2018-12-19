@@ -6,49 +6,25 @@
 
 #IncludeRegexTransform: 
 
-../header/m_client.h
-functional
--
-
-../header/m_server.h
-
-../libs/lib4aio/lib4aio_cpp_headers/utils/file_utils/file_reader.h
+../header/m_middle_server.h
 
 ../libs/lib4aio/lib4aio_cpp_headers/utils/log_utils/log_utils.h
 
-../libs/lib4aio/lib4aio_cpp_headers/utils/str_builder/str_builder.h
-
 ../libs/lib4aio/lib4aio_cpp_headers/utils/string_utils/common.h
 
-/home/ihb/IgorProjects/projects/Os/source/m_client.cpp
-m_client.h
--
-cstdio
--
-sys/stat.h
+/home/ihb/IgorProjects/projects/Os/source/m_middle_server.cpp
+m_middle_server.h
 -
 zconf.h
 -
-lib4aio/lib4aio_cpp_headers/utils/file_utils/file_reader.h
--
-lib4aio/lib4aio_cpp_headers/utils/str_builder/str_builder.h
--
-lib4aio/lib4aio_cpp_headers/utils/string_utils/common.h
+cstdio
 -
 netinet/in.h
 -
 cstring
 -
-arpa/inet.h
--
-functional
+lib4aio/lib4aio_cpp_headers/utils/string_utils/common.h
 -
 lib4aio/lib4aio_cpp_headers/utils/log_utils/log_utils.h
--
-
-/home/ihb/IgorProjects/projects/Os/source/m_server.cpp
-m_server.h
--
-zconf.h
 -
 
