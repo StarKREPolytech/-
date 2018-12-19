@@ -3,4 +3,14 @@ project(osLab)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(osLab main.cpp header/component_reader.h header/component_archiver.h header/component_separator.h header/component_programmer.h)
+include_directories(header)
+
+include_directories(libs)
+
+#lib4aio:
+add_subdirectory(libs/lib4aio)
+
+add_executable(osLab main.cpp header/m_client.h source/m_client.cpp header/m_server.h source/m_server.cpp)
+
+#link lib4aio:
+target_link_libraries(osLab lib4aio)

@@ -5,102 +5,329 @@
 		<Option title="osLab"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\libs\;CMake Files\libs\lib4aio\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/konstantin/CLionProjects/Os/cmake-build-debug"/>
+				<Option working_dir="/home/ihb/IgorProjects/projects/Os/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/konstantin/CLionProjects/Os/cmake-build-debug"/>
+				<Option working_dir="/home/ihb/IgorProjects/projects/Os/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="osLab">
-				<Option output="/home/konstantin/CLionProjects/Os/cmake-build-debug/osLab" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/konstantin/CLionProjects/Os/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/include/c++/8"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/8"/>
-					<Add directory="/usr/include/c++/8/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 osLab"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="osLab/fast">
-				<Option output="/home/konstantin/CLionProjects/Os/cmake-build-debug/osLab" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/konstantin/CLionProjects/Os/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/include/c++/8"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/8"/>
-					<Add directory="/usr/include/c++/8/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 osLab/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/konstantin/CLionProjects/Os/cmake-build-debug"/>
+				<Option working_dir="/home/ihb/IgorProjects/projects/Os/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/konstantin/CLionProjects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="osLab">
+				<Option output="/home/ihb/IgorProjects/projects/Os/cmake-build-debug/osLab" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ihb/IgorProjects/projects/Os/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ihb/IgorProjects/projects/Os/header"/>
+					<Add directory="/home/ihb/IgorProjects/projects/Os/libs"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 osLab"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="osLab/fast">
+				<Option output="/home/ihb/IgorProjects/projects/Os/cmake-build-debug/osLab" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ihb/IgorProjects/projects/Os/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ihb/IgorProjects/projects/Os/header"/>
+					<Add directory="/home/ihb/IgorProjects/projects/Os/libs"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 osLab/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lib4aio">
+				<Option output="/home/ihb/IgorProjects/projects/Os/cmake-build-debug/libs/lib4aio/liblib4aio.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ihb/IgorProjects/projects/Os/cmake-build-debug/libs/lib4aio"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ihb/IgorProjects/projects/Os/header"/>
+					<Add directory="/home/ihb/IgorProjects/projects/Os/libs"/>
+					<Add directory="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/../lib4aio"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/libs/lib4aio/Makefile&quot;  VERBOSE=1 lib4aio"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/libs/lib4aio/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/libs/lib4aio/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/libs/lib4aio/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lib4aio/fast">
+				<Option output="/home/ihb/IgorProjects/projects/Os/cmake-build-debug/libs/lib4aio/liblib4aio.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ihb/IgorProjects/projects/Os/cmake-build-debug/libs/lib4aio"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ihb/IgorProjects/projects/Os/header"/>
+					<Add directory="/home/ihb/IgorProjects/projects/Os/libs"/>
+					<Add directory="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/../lib4aio"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/libs/lib4aio/Makefile&quot;  VERBOSE=1 lib4aio/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/libs/lib4aio/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/libs/lib4aio/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/ihb/IgorProjects/projects/Os/cmake-build-debug/libs/lib4aio/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/konstantin/CLionProjects/Os/header/component_archiver.h">
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/header/m_client.h">
 			<Option target="osLab"/>
 		</Unit>
-		<Unit filename="/home/konstantin/CLionProjects/Os/header/component_programmer.h">
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/header/m_server.h">
 			<Option target="osLab"/>
 		</Unit>
-		<Unit filename="/home/konstantin/CLionProjects/Os/header/component_reader.h">
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/aio_explorer/aio_explorer.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/aio_orbit/aio_orbit.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/aio_orbit/aio_particle/aio_particle.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/aio_path_util/aio_path_util.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/aio_pattern_utils/aio_pattern_utils.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/utils/array_list_utils/array_list.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/utils/char_utils/char_utils.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/utils/color_utils/color_utils.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/utils/error_utils/error_utils.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/utils/file_utils/file_reader.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/utils/int_list_utils/int_list.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/utils/log_utils/log_utils.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/utils/memory_utils/memory_utils.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/utils/point_watcher/point_watcher.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/utils/str_builder/str_builder.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/utils/str_hook_utils/str_hook/str_hook.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/utils/str_hook_utils/str_hook_iterator/str_hook_iterator.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/utils/str_hook_utils/str_hook_list/str_hook_list.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/utils/string_utils/cast.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/utils/string_utils/common.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/utils/string_utils/match.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/utils/string_utils/split.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/utils/string_utils/suffix_prefix.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/utils/string_utils/trim.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/utils/struct_list/struct_list.h">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/aio_explorer/aio_explorer.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/aio_orbit/aio_orbit.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/aio_orbit/aio_particle/aio_particle.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/aio_path_util/aio_path_util.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/array_list_utils/array_list.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/char_utils/char_utils.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/error_utils/error_utils.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/file_utils/file_reader.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/int_list_utils/int_list.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/log_utils/log_utils.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/memory_utils/memory_utils.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/point_watcher/point_watcher.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/str_builder/str_builder.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/str_hook_utils/str_hook/advanced_functions/str_hook_cast.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/str_hook_utils/str_hook/advanced_functions/str_hook_error.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/str_hook_utils/str_hook/advanced_functions/str_hook_log.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/str_hook_utils/str_hook/advanced_functions/str_hook_matcher.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/str_hook_utils/str_hook/advanced_functions/str_hook_split.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/str_hook_utils/str_hook/advanced_functions/str_hook_trim.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/str_hook_utils/str_hook/str_hook.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/str_hook_utils/str_hook_iterator/str_hook_iterator.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/str_hook_utils/str_hook_list/advanced_functions/str_hook_list_log.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/str_hook_utils/str_hook_list/advanced_functions/str_hook_trim.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/str_hook_utils/str_hook_list/str_hook_list.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/string_utils/cast.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/string_utils/common.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/string_utils/match.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/string_utils/split.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/string_utils/suffix_prefix.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/string_utils/trim.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_sources/utils/struct_list/struct_list.cpp">
+			<Option target="lib4aio"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/main.cpp">
 			<Option target="osLab"/>
 		</Unit>
-		<Unit filename="/home/konstantin/CLionProjects/Os/header/component_separator.h">
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/source/m_client.cpp">
 			<Option target="osLab"/>
 		</Unit>
-		<Unit filename="/home/konstantin/CLionProjects/Os/main.cpp">
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/source/m_server.cpp">
 			<Option target="osLab"/>
 		</Unit>
-		<Unit filename="/home/konstantin/CLionProjects/Os/CMakeLists.txt">
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\libs\lib4aio\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>
