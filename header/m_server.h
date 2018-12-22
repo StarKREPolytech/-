@@ -15,6 +15,14 @@ public:
 
     void set_output_anonymous_gate(int output_anonymous_gate);
 
+    /**
+     * Archiver.
+     */
+
+    int input_archive_channel = 0;
+
+    int output_archive_channel = 0;
+
 private:
 
     /**
@@ -24,14 +32,6 @@ private:
     int request_channel = 0;
 
     int response_channel = 0;
-
-    /**
-     * Archiver.
-     */
-
-    int input_archive_channel = 0;
-
-    int output_archive_channel = 0;
 
     /**
      * Checker.

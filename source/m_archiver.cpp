@@ -17,15 +17,11 @@ using namespace std;
 
 #define PATH "../io/archive/sample1.txt"
 
-static const char *const INPUT_SERVER_CHANNEL_NAME = "archive_channel_2";
-
-static const char *const OUTPUT_SERVER_CHANNEL_NAME = "archive_channel_1";
-
 void m_archiver::start()
 {
     log_info(TAG, "START!");
-    this->input_server_channel = open(INPUT_SERVER_CHANNEL_NAME, O_RDONLY);
-    this->output_server_channel = open(OUTPUT_SERVER_CHANNEL_NAME, O_WRONLY);
+//    this->input_server_channel = open(ARCHIVE_CHANNEL_NAME_2, O_RDONLY);
+//    this->output_server_channel = open(ARCHIVE_CHANNEL_NAME_1, O_WRONLY);
     while (true) {
         char buffer[BUFFER_SIZE] = {0};
         while (strlen(buffer) == 0) {

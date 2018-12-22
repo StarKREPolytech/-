@@ -11,11 +11,12 @@ public:
 
     void set_input_anonymous_gate(int input_anonymous_gate);
 
-private:
-
     int input_server_channel;
 
     int output_server_channel;
+
+private:
+
 
     int input_anonymous_gate;
 

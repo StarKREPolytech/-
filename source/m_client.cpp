@@ -44,7 +44,7 @@ m_client::~m_client() = default;
 
 void m_client::start()
 {
-    printf("m_client has started!\n");
+    log_info(TAG, "START!");
     this->output_channel = open(REQUEST_CHANNEL_NAME, O_WRONLY);
     this->input_channel = open(RESPONSE_CHANNEL_NAME, O_RDONLY);
     while (true) {

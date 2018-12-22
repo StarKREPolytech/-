@@ -34,10 +34,6 @@ static const char *const REQUEST_CHANNEL_NAME = "server_request_channel";
 
 static const char *const RESPONSE_CHANNEL_NAME = "server_response_channel";
 
-static const char *const INPUT_ARCHIVE_CHANNEL_NAME = "archive_channel_1";
-
-static const char *const OUTPUT_ARCHIVE_CHANNEL_NAME = "archive_channel_2";
-
 static const char *const PATH = "../io/middle_server/sample1.txt";
 
 m_server::m_server()
@@ -55,8 +51,8 @@ void m_server::start()
     //Create channels:
     this->request_channel = open(REQUEST_CHANNEL_NAME, O_RDONLY);
     this->response_channel = open(RESPONSE_CHANNEL_NAME, O_WRONLY);
-    this->input_archive_channel = open(INPUT_ARCHIVE_CHANNEL_NAME, O_RDONLY);
-    this->output_archive_channel = open(OUTPUT_ARCHIVE_CHANNEL_NAME, O_WRONLY);
+//    this->input_archive_channel = open(ARCHIVE_CHANNEL_NAME_1, O_RDONLY);
+//    this->output_archive_channel = open(ARCHIVE_CHANNEL_NAME_2, O_WRONLY);
 
     //Launch service:
     this->launch_service();

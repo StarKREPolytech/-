@@ -6,7 +6,15 @@
 
 #IncludeRegexTransform: 
 
-../header/m_middle_server.h
+../header/m_archiver.h
+
+../header/m_checker.h
+
+../header/m_client.h
+functional
+-
+
+../header/m_server.h
 
 ../header/util/common.h
 
@@ -14,8 +22,48 @@
 
 ../libs/lib4aio/lib4aio_cpp_headers/utils/string_utils/common.h
 
-/home/ihb/IgorProjects/projects/Os/source/m_middle_server.cpp
-m_middle_server.h
+/home/ihb/IgorProjects/projects/Os/main.cpp
+string.h
+-
+unistd.h
+-
+stdio.h
+-
+stdlib.h
+-
+stdint.h
+-
+stdbool.h
+-
+sys/mman.h
+-
+sys/stat.h
+-
+sys/socket.h
+-
+ctime
+-
+iostream
+-
+fcntl.h
+-
+netinet/in.h
+-
+arpa/inet.h
+-
+m_client.h
+-
+m_server.h
+-
+csignal
+-
+util/common.h
+-
+m_archiver.h
+-
+
+/home/ihb/IgorProjects/projects/Os/source/m_server.cpp
+m_server.h
 -
 zconf.h
 -
@@ -38,5 +86,9 @@ string
 util/common.h
 -
 csignal
+-
+m_checker.h
+-
+fstream
 -
 
