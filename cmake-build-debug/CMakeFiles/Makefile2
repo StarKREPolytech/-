@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = /home/ihb/IgorProjects/projects/Os/cmake-build-debug
 CMakeFiles/osLab.dir/all: libs/lib4aio/CMakeFiles/lib4aio.dir/all
 	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/depend
 	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ihb/IgorProjects/projects/Os/cmake-build-debug/CMakeFiles --progress-num=33,34,35,36,37 "Built target osLab"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ihb/IgorProjects/projects/Os/cmake-build-debug/CMakeFiles --progress-num=33,34,35,36,37,38,39 "Built target osLab"
 .PHONY : CMakeFiles/osLab.dir/all
 
 # Include target in all.
@@ -81,7 +81,7 @@ all: CMakeFiles/osLab.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/osLab.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ihb/IgorProjects/projects/Os/cmake-build-debug/CMakeFiles 37
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ihb/IgorProjects/projects/Os/cmake-build-debug/CMakeFiles 39
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/osLab.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ihb/IgorProjects/projects/Os/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/osLab.dir/rule

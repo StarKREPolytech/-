@@ -1,8 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/osLab.dir/main.cpp.o"
   "CMakeFiles/osLab.dir/source/m_client.cpp.o"
-  "CMakeFiles/osLab.dir/source/m_middle_server.cpp.o"
+  "CMakeFiles/osLab.dir/source/m_server.cpp.o"
   "CMakeFiles/osLab.dir/source/util/common.cpp.o"
+  "CMakeFiles/osLab.dir/source/m_archiver.cpp.o"
+  "CMakeFiles/osLab.dir/source/m_checker.cpp.o"
   "osLab.pdb"
   "osLab"
 )

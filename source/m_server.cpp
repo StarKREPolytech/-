@@ -1,5 +1,5 @@
 
-#include <m_middle_server.h>
+#include <m_server.h>
 #include <zconf.h>
 #include <cstdio>
 #include <netinet/in.h>
@@ -11,6 +11,8 @@
 #include <string>
 #include <util/common.h>
 #include <csignal>
+#include <m_checker.h>
+#include <fstream>
 
 #define BUFFER_SIZE 1024
 
@@ -32,35 +34,35 @@ static const char *const REQUEST_CHANNEL_NAME = "server_request_channel";
 
 static const char *const RESPONSE_CHANNEL_NAME = "server_response_channel";
 
-static const char *const INPUT_ARCHIVE_CHANNEL_NAME = "input_archive_channel";
+static const char *const INPUT_ARCHIVE_CHANNEL_NAME = "archive_channel_1";
 
-static const char *const PATH = "../io/m_middle_server/sample1.txt";
+static const char *const OUTPUT_ARCHIVE_CHANNEL_NAME = "archive_channel_2";
 
-m_middle_server::m_middle_server()
+static const char *const PATH = "../io/m_server/sample1.txt";
+
+m_server::m_server()
 {}
 
-m_middle_server::~m_middle_server()
+m_server::~m_server()
 {
 
 }
 
-void m_middle_server::start()
+void m_server::start()
 {
-    printf("m_middle_server has started!\n");
+    log_info(TAG, "START!");
 
     //Create channels:
-    mknod(REQUEST_CHANNEL_NAME, S_IFIFO | 0666, 0);
-    mknod(RESPONSE_CHANNEL_NAME, S_IFIFO | 0666, 0);
-    mknod(INPUT_ARCHIVE_CHANNEL_NAME, S_IFIFO | 0666, 0);
     this->request_channel = open(REQUEST_CHANNEL_NAME, O_RDONLY);
     this->response_channel = open(RESPONSE_CHANNEL_NAME, O_WRONLY);
     this->input_archive_channel = open(INPUT_ARCHIVE_CHANNEL_NAME, O_RDONLY);
+    this->output_archive_channel = open(OUTPUT_ARCHIVE_CHANNEL_NAME, O_WRONLY);
 
     //Launch service:
     this->launch_service();
 }
 
-void m_middle_server::launch_service()
+void m_server::launch_service()
 {
     //Create socket:
     sockaddr_in address;
@@ -104,17 +106,29 @@ void m_middle_server::launch_service()
                 }
 
                 //Send data to archiver:
-                write(this->output_archive_channel, buffer, BUFFER_SIZE);
+                const char *file_content = new_string(buffer);
+                write(this->output_archive_channel, file_content, BUFFER_SIZE);
                 bzero(buffer, BUFFER_SIZE);
-                while (strlen(buffer) == 0){
+                while (strlen(buffer) == 0) {
                     read(this->input_archive_channel, buffer, BUFFER_SIZE);
                 }
-                const char * status = buffer;
+
+                //Check status:
+                const char *status = buffer;
+                if (strcmp(status, ACCEPT_STATUS)) {
+                    ofstream file;
+                    file.open("../io/middle_server/sample1.txt");
+                    file << file_content;
+                    file.close();
+                }
 
                 //Write response to client:
                 write(this->response_channel, status, BUFFER_SIZE);
                 log_info_string(TAG, "OUTPUT_CHANNEL_FILE: ", ACCEPT_STATUS);
                 bzero(buffer, BUFFER_SIZE);
+
+                //GC:
+                delete file_content;
             }
             delete response;
         }
@@ -138,36 +152,18 @@ void on_failed_last_modified_time(int signal_value)
     signal(signal_value, SIG_DFL);
 }
 
-char *m_middle_server::handle_request(const char *request)
+char *m_server::handle_request(const char *request)
 {
     signal(SIGUSR1, on_successful_last_modified_time);
     signal(SIGUSR2, on_failed_last_modified_time);
 
     //Check last modified data:
     if (fork() == 0) {
-
-        //Start process:
-        log_info(TAG, "STARTED CHECKER!");
-        string::size_type type;
-        const long last_modified_file = get_file_last_modified_time(PATH);
-        const long input_last_modified_time = stol(request, &type);
-        int flag;
-        if (last_modified_file < input_last_modified_time) {
-            char response[BUFFER_SIZE] = {0};
-            write(this->output_gate, request, BUFFER_SIZE);
-            while (strlen(response) == 0) {
-                read(this->input_gate, response, BUFFER_SIZE);
-            }
-            if (strcmp(response, ACCEPT_STATUS) == 0) {
-                flag = SIGUSR1;
-                log_info(TAG, "YES!");
-            } else {
-                flag = SIGUSR2;
-            }
-        } else {
-            flag = SIGUSR2;
-            log_info(TAG, "NO!");
-        }
+        const int flag = check_last_modified_time(
+                this->input_anonymous_gate,
+                this->output_anonymous_gate,
+                request
+        );
         kill(getppid(), flag);
         log_info(TAG, "KILLED PROCESS!");
         exit(1);
@@ -176,4 +172,14 @@ char *m_middle_server::handle_request(const char *request)
     pause();
     log_info(TAG, "RESUME!");
     return new_string(status);
+}
+
+void m_server::set_input_anonymous_gate(int input_anonymous_gate)
+{
+    this->input_anonymous_gate = input_anonymous_gate;
+}
+
+void m_server::set_output_anonymous_gate(int output_anonymous_gate)
+{
+    this->output_anonymous_gate = output_anonymous_gate;
 }

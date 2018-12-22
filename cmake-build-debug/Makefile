@@ -163,6 +163,60 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+source/m_archiver.o: source/m_archiver.cpp.o
+
+.PHONY : source/m_archiver.o
+
+# target to build an object file
+source/m_archiver.cpp.o:
+	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/m_archiver.cpp.o
+.PHONY : source/m_archiver.cpp.o
+
+source/m_archiver.i: source/m_archiver.cpp.i
+
+.PHONY : source/m_archiver.i
+
+# target to preprocess a source file
+source/m_archiver.cpp.i:
+	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/m_archiver.cpp.i
+.PHONY : source/m_archiver.cpp.i
+
+source/m_archiver.s: source/m_archiver.cpp.s
+
+.PHONY : source/m_archiver.s
+
+# target to generate assembly for a file
+source/m_archiver.cpp.s:
+	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/m_archiver.cpp.s
+.PHONY : source/m_archiver.cpp.s
+
+source/m_checker.o: source/m_checker.cpp.o
+
+.PHONY : source/m_checker.o
+
+# target to build an object file
+source/m_checker.cpp.o:
+	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/m_checker.cpp.o
+.PHONY : source/m_checker.cpp.o
+
+source/m_checker.i: source/m_checker.cpp.i
+
+.PHONY : source/m_checker.i
+
+# target to preprocess a source file
+source/m_checker.cpp.i:
+	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/m_checker.cpp.i
+.PHONY : source/m_checker.cpp.i
+
+source/m_checker.s: source/m_checker.cpp.s
+
+.PHONY : source/m_checker.s
+
+# target to generate assembly for a file
+source/m_checker.cpp.s:
+	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/m_checker.cpp.s
+.PHONY : source/m_checker.cpp.s
+
 source/m_client.o: source/m_client.cpp.o
 
 .PHONY : source/m_client.o
@@ -190,32 +244,32 @@ source/m_client.cpp.s:
 	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/m_client.cpp.s
 .PHONY : source/m_client.cpp.s
 
-source/m_middle_server.o: source/m_middle_server.cpp.o
+source/m_server.o: source/m_server.cpp.o
 
-.PHONY : source/m_middle_server.o
+.PHONY : source/m_server.o
 
 # target to build an object file
-source/m_middle_server.cpp.o:
-	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/m_middle_server.cpp.o
-.PHONY : source/m_middle_server.cpp.o
+source/m_server.cpp.o:
+	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/m_server.cpp.o
+.PHONY : source/m_server.cpp.o
 
-source/m_middle_server.i: source/m_middle_server.cpp.i
+source/m_server.i: source/m_server.cpp.i
 
-.PHONY : source/m_middle_server.i
+.PHONY : source/m_server.i
 
 # target to preprocess a source file
-source/m_middle_server.cpp.i:
-	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/m_middle_server.cpp.i
-.PHONY : source/m_middle_server.cpp.i
+source/m_server.cpp.i:
+	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/m_server.cpp.i
+.PHONY : source/m_server.cpp.i
 
-source/m_middle_server.s: source/m_middle_server.cpp.s
+source/m_server.s: source/m_server.cpp.s
 
-.PHONY : source/m_middle_server.s
+.PHONY : source/m_server.s
 
 # target to generate assembly for a file
-source/m_middle_server.cpp.s:
-	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/m_middle_server.cpp.s
-.PHONY : source/m_middle_server.cpp.s
+source/m_server.cpp.s:
+	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/m_server.cpp.s
+.PHONY : source/m_server.cpp.s
 
 source/util/common.o: source/util/common.cpp.o
 
@@ -257,12 +311,18 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... source/m_archiver.o"
+	@echo "... source/m_archiver.i"
+	@echo "... source/m_archiver.s"
+	@echo "... source/m_checker.o"
+	@echo "... source/m_checker.i"
+	@echo "... source/m_checker.s"
 	@echo "... source/m_client.o"
 	@echo "... source/m_client.i"
 	@echo "... source/m_client.s"
-	@echo "... source/m_middle_server.o"
-	@echo "... source/m_middle_server.i"
-	@echo "... source/m_middle_server.s"
+	@echo "... source/m_server.o"
+	@echo "... source/m_server.i"
+	@echo "... source/m_server.s"
 	@echo "... source/util/common.o"
 	@echo "... source/util/common.i"
 	@echo "... source/util/common.s"

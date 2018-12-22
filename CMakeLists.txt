@@ -10,7 +10,7 @@ include_directories(libs)
 #lib4aio:
 add_subdirectory(libs/lib4aio)
 
-add_executable(osLab main.cpp header/m_client.h source/m_client.cpp header/m_middle_server.h source/m_middle_server.cpp header/util/common.h source/util/common.cpp)
+add_executable(osLab main.cpp header/m_client.h source/m_client.cpp header/m_server.h source/m_server.cpp header/util/common.h source/util/common.cpp source/m_archiver.cpp header/m_archiver.h header/m_checker.h source/m_checker.cpp)
 
 #link lib4aio:
 target_link_libraries(osLab lib4aio)
