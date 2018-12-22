@@ -8,6 +8,8 @@
 
 ../header/m_middle_server.h
 
+../header/util/common.h
+
 ../libs/lib4aio/lib4aio_cpp_headers/utils/log_utils/log_utils.h
 
 ../libs/lib4aio/lib4aio_cpp_headers/utils/string_utils/common.h
@@ -30,5 +32,11 @@ lib4aio/lib4aio_cpp_headers/utils/log_utils/log_utils.h
 fcntl.h
 -
 sys/stat.h
+-
+string
+-
+util/common.h
+-
+csignal
 -
 

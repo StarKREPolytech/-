@@ -6,6 +6,7 @@ CMakeFiles/osLab.dir/main.cpp.o: ../header/m_middle_server.h
 CMakeFiles/osLab.dir/main.cpp.o: ../main.cpp
 
 CMakeFiles/osLab.dir/source/m_client.cpp.o: ../header/m_client.h
+CMakeFiles/osLab.dir/source/m_client.cpp.o: ../header/util/common.h
 CMakeFiles/osLab.dir/source/m_client.cpp.o: ../libs/lib4aio/lib4aio_cpp_headers/utils/file_utils/file_reader.h
 CMakeFiles/osLab.dir/source/m_client.cpp.o: ../libs/lib4aio/lib4aio_cpp_headers/utils/log_utils/log_utils.h
 CMakeFiles/osLab.dir/source/m_client.cpp.o: ../libs/lib4aio/lib4aio_cpp_headers/utils/str_builder/str_builder.h
@@ -14,7 +15,10 @@ CMakeFiles/osLab.dir/source/m_client.cpp.o: ../libs/lib4aio/lib4aio_cpp_headers/
 CMakeFiles/osLab.dir/source/m_client.cpp.o: ../source/m_client.cpp
 
 CMakeFiles/osLab.dir/source/m_middle_server.cpp.o: ../header/m_middle_server.h
+CMakeFiles/osLab.dir/source/m_middle_server.cpp.o: ../header/util/common.h
 CMakeFiles/osLab.dir/source/m_middle_server.cpp.o: ../libs/lib4aio/lib4aio_cpp_headers/utils/log_utils/log_utils.h
 CMakeFiles/osLab.dir/source/m_middle_server.cpp.o: ../libs/lib4aio/lib4aio_cpp_headers/utils/string_utils/common.h
 CMakeFiles/osLab.dir/source/m_middle_server.cpp.o: ../source/m_middle_server.cpp
+
+CMakeFiles/osLab.dir/source/util/common.cpp.o: ../source/util/common.cpp
 

@@ -13,8 +13,9 @@
 #include <lib4aio/lib4aio_cpp_headers/utils/string_utils/cast.h>
 #include <sstream>
 #include <fcntl.h>
+#include <util/common.h>
 
-#define TARGET_FILE_PATH "../io/sample1.txt"
+#define TARGET_FILE_PATH "../io/client/sample1.txt"
 
 #define PORT 8080
 
@@ -33,13 +34,6 @@ using namespace std;
 static const char *const REQUEST_CHANNEL_NAME = "server_request_channel";
 
 static const char *const RESPONSE_CHANNEL_NAME = "server_response_channel";
-
-static long get_file_last_modified_time(const char *path)
-{
-    struct stat attr{};
-    stat(path, &attr);
-    return attr.st_mtime;
-}
 
 m_client::m_client()
 {

@@ -146,6 +146,9 @@
 		<Unit filename="/home/ihb/IgorProjects/projects/Os/header/m_middle_server.h">
 			<Option target="osLab"/>
 		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/header/util/common.h">
+			<Option target="osLab"/>
+		</Unit>
 		<Unit filename="/home/ihb/IgorProjects/projects/Os/libs/lib4aio/lib4aio_cpp_headers/aio_explorer/aio_explorer.h">
 			<Option target="lib4aio"/>
 		</Unit>
@@ -321,6 +324,9 @@
 			<Option target="osLab"/>
 		</Unit>
 		<Unit filename="/home/ihb/IgorProjects/projects/Os/source/m_middle_server.cpp">
+			<Option target="osLab"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/source/util/common.cpp">
 			<Option target="osLab"/>
 		</Unit>
 		<Unit filename="/home/ihb/IgorProjects/projects/Os/CMakeLists.txt">

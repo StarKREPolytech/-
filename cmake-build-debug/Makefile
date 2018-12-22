@@ -217,6 +217,33 @@ source/m_middle_server.cpp.s:
 	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/m_middle_server.cpp.s
 .PHONY : source/m_middle_server.cpp.s
 
+source/util/common.o: source/util/common.cpp.o
+
+.PHONY : source/util/common.o
+
+# target to build an object file
+source/util/common.cpp.o:
+	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/util/common.cpp.o
+.PHONY : source/util/common.cpp.o
+
+source/util/common.i: source/util/common.cpp.i
+
+.PHONY : source/util/common.i
+
+# target to preprocess a source file
+source/util/common.cpp.i:
+	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/util/common.cpp.i
+.PHONY : source/util/common.cpp.i
+
+source/util/common.s: source/util/common.cpp.s
+
+.PHONY : source/util/common.s
+
+# target to generate assembly for a file
+source/util/common.cpp.s:
+	$(MAKE) -f CMakeFiles/osLab.dir/build.make CMakeFiles/osLab.dir/source/util/common.cpp.s
+.PHONY : source/util/common.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -236,6 +263,9 @@ help:
 	@echo "... source/m_middle_server.o"
 	@echo "... source/m_middle_server.i"
 	@echo "... source/m_middle_server.s"
+	@echo "... source/util/common.o"
+	@echo "... source/util/common.i"
+	@echo "... source/util/common.s"
 .PHONY : help
 
 
