@@ -15,6 +15,7 @@
 #include <m_client.h>
 #include <m_middle_server.h>
 #include <csignal>
+#include <util/common.h>
 
 #define PORT 8080
 
@@ -39,6 +40,12 @@
 
 int main()
 {
+
+    const int *anonymous_pipeline = create_anonymous_pipeline();
+    const int read_gate = anonymous_pipeline[0];
+    const int write_gate = anonymous_pipeline[1];
+
+
     //Create client:
     m_client *client = new m_client();
     //Create server system:

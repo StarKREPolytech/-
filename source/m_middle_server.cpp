@@ -32,6 +32,8 @@ static const char *const REQUEST_CHANNEL_NAME = "server_request_channel";
 
 static const char *const RESPONSE_CHANNEL_NAME = "server_response_channel";
 
+static const char *const INPUT_ARCHIVE_CHANNEL_NAME = "input_archive_channel";
+
 static const char *const PATH = "../io/m_middle_server/sample1.txt";
 
 m_middle_server::m_middle_server()
@@ -49,8 +51,11 @@ void m_middle_server::start()
     //Create channels:
     mknod(REQUEST_CHANNEL_NAME, S_IFIFO | 0666, 0);
     mknod(RESPONSE_CHANNEL_NAME, S_IFIFO | 0666, 0);
-    this->input_channel = open(REQUEST_CHANNEL_NAME, O_RDONLY);
-    this->output_channel = open(RESPONSE_CHANNEL_NAME, O_WRONLY);
+    mknod(INPUT_ARCHIVE_CHANNEL_NAME, S_IFIFO | 0666, 0);
+    this->request_channel = open(REQUEST_CHANNEL_NAME, O_RDONLY);
+    this->response_channel = open(RESPONSE_CHANNEL_NAME, O_WRONLY);
+    this->input_archive_channel = open(INPUT_ARCHIVE_CHANNEL_NAME, O_RDONLY);
+
     //Launch service:
     this->launch_service();
 }
@@ -94,10 +99,20 @@ void m_middle_server::launch_service()
 
                 //Read file by input channel:
                 while (strlen(buffer) == 0) {
-                    read(this->input_channel, buffer, BUFFER_SIZE);
+                    read(this->request_channel, buffer, BUFFER_SIZE);
                     log_info_string(TAG, "INPUT_CHANNEL_FILE: ", buffer);
                 }
-                write(this->output_channel, ACCEPT_STATUS, BUFFER_SIZE);
+
+                //Send data to archiver:
+                write(this->output_archive_channel, buffer, BUFFER_SIZE);
+                bzero(buffer, BUFFER_SIZE);
+                while (strlen(buffer) == 0){
+                    read(this->input_archive_channel, buffer, BUFFER_SIZE);
+                }
+                const char * status = buffer;
+
+                //Write response to client:
+                write(this->response_channel, status, BUFFER_SIZE);
                 log_info_string(TAG, "OUTPUT_CHANNEL_FILE: ", ACCEPT_STATUS);
                 bzero(buffer, BUFFER_SIZE);
             }
@@ -109,13 +124,10 @@ void m_middle_server::launch_service()
 
 static const char *status = nullptr;
 
-static bool is_locked = false;
-
 void on_successful_last_modified_time(int signal_value)
 {
     printf("ACCEPT SIGNAL: %i\n", signal_value);
     status = ACCEPT_STATUS;
-    is_locked = false;
     signal(signal_value, SIG_DFL);
 }
 
@@ -123,17 +135,11 @@ void on_failed_last_modified_time(int signal_value)
 {
     printf("REJECT SIGNAL: %i\n", signal_value);
     status = REJECT_STATUS;
-    is_locked = false;
     signal(signal_value, SIG_DFL);
 }
 
-#define ACCEPT_FLAG 1000
-
-#define REJECT_FLAG 1001
-
 char *m_middle_server::handle_request(const char *request)
 {
-    is_locked = true;
     signal(SIGUSR1, on_successful_last_modified_time);
     signal(SIGUSR2, on_failed_last_modified_time);
 
@@ -147,8 +153,17 @@ char *m_middle_server::handle_request(const char *request)
         const long input_last_modified_time = stol(request, &type);
         int flag;
         if (last_modified_file < input_last_modified_time) {
-            flag = SIGUSR1;
-            log_info(TAG, "YES!");
+            char response[BUFFER_SIZE] = {0};
+            write(this->output_gate, request, BUFFER_SIZE);
+            while (strlen(response) == 0) {
+                read(this->input_gate, response, BUFFER_SIZE);
+            }
+            if (strcmp(response, ACCEPT_STATUS) == 0) {
+                flag = SIGUSR1;
+                log_info(TAG, "YES!");
+            } else {
+                flag = SIGUSR2;
+            }
         } else {
             flag = SIGUSR2;
             log_info(TAG, "NO!");
@@ -160,13 +175,5 @@ char *m_middle_server::handle_request(const char *request)
     log_info(TAG, "PAUSE!");
     pause();
     log_info(TAG, "RESUME!");
-
-    //Rewrite
-    if (fork() == 0) {
-
-    }
-    pause();
-
-
     return new_string(status);
 }

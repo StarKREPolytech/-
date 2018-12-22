@@ -13,9 +13,11 @@ public:
 
 private:
 
-    int input_channel = 0;
+    int request_channel = 0;
 
-    int output_channel = 0;
+    int response_channel = 0;
+
+    int input_archive_channel = 0;
 
     void launch_service();
 
