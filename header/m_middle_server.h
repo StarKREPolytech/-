@@ -13,6 +13,12 @@ public:
 
 private:
 
+    int input_channel = 0;
+
+    int output_channel = 0;
+
+    void launch_service();
+
     char *handle_request(const char *request);
 };
 

@@ -27,6 +27,10 @@ private:
 
     long last_modified_file;
 
+    int input_channel = 0;
+
+    int output_channel = 0;
+
     void listen_file();
 
     void call_by_socket(const char *request, const unsigned long size, const int m_socket);
