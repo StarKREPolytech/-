@@ -1,9 +1,9 @@
-#include <bits/signum.h>
 #include <cstring>
 #include <zconf.h>
 #include <util/common.h>
 #include <lib4aio/lib4aio_cpp_headers/utils/log_utils/log_utils.h>
 #include <string>
+#include <signal.h>
 
 using namespace lib4aio;
 
@@ -29,20 +29,23 @@ int check_last_modified_time(
     const long input_last_modified_time = stol(request, &type);
     int flag;
     if (last_modified_file < input_last_modified_time) {
-        char response[BUFFER_SIZE] = {0};
+        log_info_string(TAG, "SEND REQUEST TO ARCHIVER", request);
         write(output_gate, request, BUFFER_SIZE);
+        char response[BUFFER_SIZE] = {0};
         while (strlen(response) == 0) {
             read(input_gate, response, BUFFER_SIZE);
         }
+        log_info_string(TAG, "ARCHIVER RESPONSE", response);
         if (strcmp(response, ACCEPT_STATUS) == 0) {
             flag = SIGUSR1;
             log_info(TAG, "YES!");
         } else {
             flag = SIGUSR2;
+            log_info(TAG, "NO 1!");
         }
     } else {
         flag = SIGUSR2;
-        log_info(TAG, "NO!");
+        log_info(TAG, "NO 2!");
     }
     return flag;
 }

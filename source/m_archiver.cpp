@@ -5,10 +5,17 @@
 #include <zconf.h>
 #include <fstream>
 #include <util/common.h>
+#include <lib4aio/lib4aio_cpp_headers/utils/log_utils/log_utils.h>
+
+using namespace lib4aio;
 
 using namespace std;
 
 #define BUFFER_SIZE 1024
+
+#define TAG "M_ARCHIVER"
+
+#define PATH "../io/archive/sample1.txt"
 
 static const char *const INPUT_SERVER_CHANNEL_NAME = "archive_channel_2";
 
@@ -16,6 +23,7 @@ static const char *const OUTPUT_SERVER_CHANNEL_NAME = "archive_channel_1";
 
 void m_archiver::start()
 {
+    log_info(TAG, "START!");
     this->input_server_channel = open(INPUT_SERVER_CHANNEL_NAME, O_RDONLY);
     this->output_server_channel = open(OUTPUT_SERVER_CHANNEL_NAME, O_WRONLY);
     while (true) {
@@ -23,12 +31,15 @@ void m_archiver::start()
         while (strlen(buffer) == 0) {
             read(this->input_anonymous_gate, buffer, BUFFER_SIZE);
         }
+        log_info_string(TAG, "GET REQUEST FROM CHECKER", buffer);
         string::size_type type;
-        const long last_modified_archive = get_file_last_modified_time("../io/archive/sample1.txt");
+        const long last_modified_archive = get_file_last_modified_time(PATH);
         const long last_modified_from_client = stol(buffer, &type);
         if (last_modified_archive < last_modified_from_client) {
+            log_info(TAG, "ACCEPT FOR CHECKER");
             write(this->output_anonymous_gate, "ACCEPT", 7);
         } else {
+            log_info(TAG, "REJECT FOR CHECKER");
             write(this->output_anonymous_gate, "REJECT", 7);
         }
         bzero(buffer, BUFFER_SIZE);
@@ -39,6 +50,8 @@ void m_archiver::start()
         file.open("../io/archive/sample1.txt");
         file << buffer;
         file.close();
+        write(this->output_server_channel, "ACCEPT", 7);
+        log_info_string(TAG, "ARCHIVED DATA FROM SERVER", buffer);
     }
 }
 

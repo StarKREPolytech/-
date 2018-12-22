@@ -38,7 +38,7 @@ static const char *const INPUT_ARCHIVE_CHANNEL_NAME = "archive_channel_1";
 
 static const char *const OUTPUT_ARCHIVE_CHANNEL_NAME = "archive_channel_2";
 
-static const char *const PATH = "../io/m_server/sample1.txt";
+static const char *const PATH = "../io/middle_server/sample1.txt";
 
 m_server::m_server()
 {}
@@ -117,7 +117,7 @@ void m_server::launch_service()
                 const char *status = buffer;
                 if (strcmp(status, ACCEPT_STATUS)) {
                     ofstream file;
-                    file.open("../io/middle_server/sample1.txt");
+                    file.open(PATH);
                     file << file_content;
                     file.close();
                 }
