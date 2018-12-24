@@ -25,11 +25,10 @@ static const char *const RESPONSE_CHANNEL_NAME = "server_response_channel";
 int main()
 {
     //Open anonymous pipe:
-    const int *anonymous_pipeline = create_anonymous_pipeline();
-    const int input_anonymous_gate = anonymous_pipeline[0];
-    const int output_anonymous_gate = anonymous_pipeline[1];
-
-    const int *pipe2 = create_anonymous_pipeline();
+    const int *checker_to_archiver_pipe = create_anonymous_pipeline();
+    const int *archiver_to_checker_pipe = create_anonymous_pipeline();
+    const int *server_to_archiver_pipe = create_anonymous_pipeline();
+    const int *archiver_to_server_pipe = create_anonymous_pipeline();
 
     //Open named pipes:
     mknod(REQUEST_CHANNEL_NAME, S_IFIFO | 0666, 0);
@@ -45,15 +44,15 @@ int main()
     m_client *client = new m_client();
     //Create server system:
     m_server *server = new m_server();
-    server->set_input_anonymous_gate(input_anonymous_gate);
-    server->set_output_anonymous_gate(output_anonymous_gate);
-    server->input_archive_channel = pipe2[0];
-    server->output_archive_channel = pipe2[1];
+    server->set_input_anonymous_gate(archiver_to_checker_pipe[0]);
+    server->set_output_anonymous_gate(checker_to_archiver_pipe[1]);
+    server->input_archive_channel = archiver_to_server_pipe[0];
+    server->output_archive_channel = server_to_archiver_pipe[1];
     m_archiver *archiver = new m_archiver();
-    archiver->set_input_anonymous_gate(input_anonymous_gate);
-    archiver->set_output_anonymous_gate(output_anonymous_gate);
-    archiver->input_server_channel = pipe2[0];
-    archiver->output_server_channel = pipe2[1];
+    archiver->set_input_anonymous_gate(checker_to_archiver_pipe[0]);
+    archiver->set_output_anonymous_gate(archiver_to_checker_pipe[1]);
+    archiver->input_server_channel = server_to_archiver_pipe[0];
+    archiver->output_server_channel = archiver_to_server_pipe[1];
     //Launch processes:
     if (fork() == 0) {
         if (fork() == 0) {
