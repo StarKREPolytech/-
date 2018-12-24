@@ -47,6 +47,7 @@ void m_archiver::start()
         file << buffer;
         file.close();
         write(this->output_server_channel, "ACCEPT", 7);
+        system("tar -czvf ../io/archive/sample1.tar.gz ../io/archive/sample1.txt");
         log_info_string(TAG, "ARCHIVED DATA FROM SERVER", buffer);
     }
 }

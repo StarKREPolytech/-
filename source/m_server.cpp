@@ -111,7 +111,7 @@ void m_server::launch_service()
 
                 //Check status:
                 const char *status = buffer;
-                if (strcmp(status, ACCEPT_STATUS)) {
+                if (strcmp(status, ACCEPT_STATUS) == 0) {
                     ofstream file;
                     file.open(PATH);
                     file << file_content;
