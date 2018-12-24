@@ -8,8 +8,6 @@
 
 ../header/m_archiver.h
 
-../header/m_checker.h
-
 ../header/m_client.h
 functional
 -
@@ -17,10 +15,6 @@ functional
 ../header/m_server.h
 
 ../header/util/common.h
-
-../libs/lib4aio/lib4aio_cpp_headers/utils/log_utils/log_utils.h
-
-../libs/lib4aio/lib4aio_cpp_headers/utils/string_utils/common.h
 
 /home/ihb/IgorProjects/projects/Os/main.cpp
 string.h
@@ -60,35 +54,5 @@ csignal
 util/common.h
 -
 m_archiver.h
--
-
-/home/ihb/IgorProjects/projects/Os/source/m_server.cpp
-m_server.h
--
-zconf.h
--
-cstdio
--
-netinet/in.h
--
-cstring
--
-lib4aio/lib4aio_cpp_headers/utils/string_utils/common.h
--
-lib4aio/lib4aio_cpp_headers/utils/log_utils/log_utils.h
--
-fcntl.h
--
-sys/stat.h
--
-string
--
-util/common.h
--
-csignal
--
-m_checker.h
--
-fstream
 -
 
