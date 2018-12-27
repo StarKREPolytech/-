@@ -41,7 +41,7 @@ void o_client::ask()
         cin >> program;
 
         //Send program:
-        write(this->output_channel, ACCEPT_STATUS, 7);
+        write(this->output_channel, program, BUFFER_SIZE);
 
         //Wait response:
         char channel_response[BUFFER_SIZE] = {0};
@@ -52,6 +52,7 @@ void o_client::ask()
         if (strcmp(channel_response, ACCEPT_STATUS) == 0) {
             log_info(TAG, "PROGRAM HAS PERFORMED!");
         }
+        bzero(program, BUFFER_SIZE);
         bzero(channel_response, BUFFER_SIZE);
     }
     delete socket_response;

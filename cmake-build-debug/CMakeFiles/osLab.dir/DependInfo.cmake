@@ -9,10 +9,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/konstantin/CLionProjects/Os/source/o_left_server.cpp" "/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles/osLab.dir/source/o_left_server.cpp.o"
   "/home/konstantin/CLionProjects/Os/source/o_middle_server.cpp" "/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles/osLab.dir/source/o_middle_server.cpp.o"
   "/home/konstantin/CLionProjects/Os/source/o_right_server.cpp" "/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles/osLab.dir/source/o_right_server.cpp.o"
-  "/home/konstantin/CLionProjects/Os/source/old/m_archiver.cpp" "/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles/osLab.dir/source/old/m_archiver.cpp.o"
-  "/home/konstantin/CLionProjects/Os/source/old/m_checker.cpp" "/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles/osLab.dir/source/old/m_checker.cpp.o"
-  "/home/konstantin/CLionProjects/Os/source/old/m_client.cpp" "/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles/osLab.dir/source/old/m_client.cpp.o"
-  "/home/konstantin/CLionProjects/Os/source/old/m_server.cpp" "/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles/osLab.dir/source/old/m_server.cpp.o"
   "/home/konstantin/CLionProjects/Os/source/util/common.cpp" "/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles/osLab.dir/source/util/common.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

@@ -152,18 +152,6 @@
 		<Unit filename="/home/konstantin/CLionProjects/Os/header/o_right_server.h">
 			<Option target="osLab"/>
 		</Unit>
-		<Unit filename="/home/konstantin/CLionProjects/Os/header/old/m_archiver.h">
-			<Option target="osLab"/>
-		</Unit>
-		<Unit filename="/home/konstantin/CLionProjects/Os/header/old/m_checker.h">
-			<Option target="osLab"/>
-		</Unit>
-		<Unit filename="/home/konstantin/CLionProjects/Os/header/old/m_client.h">
-			<Option target="osLab"/>
-		</Unit>
-		<Unit filename="/home/konstantin/CLionProjects/Os/header/old/m_server.h">
-			<Option target="osLab"/>
-		</Unit>
 		<Unit filename="/home/konstantin/CLionProjects/Os/header/util/common.h">
 			<Option target="osLab"/>
 		</Unit>
@@ -348,18 +336,6 @@
 			<Option target="osLab"/>
 		</Unit>
 		<Unit filename="/home/konstantin/CLionProjects/Os/source/o_right_server.cpp">
-			<Option target="osLab"/>
-		</Unit>
-		<Unit filename="/home/konstantin/CLionProjects/Os/source/old/m_archiver.cpp">
-			<Option target="osLab"/>
-		</Unit>
-		<Unit filename="/home/konstantin/CLionProjects/Os/source/old/m_checker.cpp">
-			<Option target="osLab"/>
-		</Unit>
-		<Unit filename="/home/konstantin/CLionProjects/Os/source/old/m_client.cpp">
-			<Option target="osLab"/>
-		</Unit>
-		<Unit filename="/home/konstantin/CLionProjects/Os/source/old/m_server.cpp">
 			<Option target="osLab"/>
 		</Unit>
 		<Unit filename="/home/konstantin/CLionProjects/Os/source/util/common.cpp">

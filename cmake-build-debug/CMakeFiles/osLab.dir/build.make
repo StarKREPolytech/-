@@ -70,35 +70,9 @@ CMakeFiles/osLab.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/osLab.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/konstantin/CLionProjects/Os/main.cpp -o CMakeFiles/osLab.dir/main.cpp.s
 
-CMakeFiles/osLab.dir/source/old/m_client.cpp.o: CMakeFiles/osLab.dir/flags.make
-CMakeFiles/osLab.dir/source/old/m_client.cpp.o: ../source/old/m_client.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/osLab.dir/source/old/m_client.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/osLab.dir/source/old/m_client.cpp.o -c /home/konstantin/CLionProjects/Os/source/old/m_client.cpp
-
-CMakeFiles/osLab.dir/source/old/m_client.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/osLab.dir/source/old/m_client.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/konstantin/CLionProjects/Os/source/old/m_client.cpp > CMakeFiles/osLab.dir/source/old/m_client.cpp.i
-
-CMakeFiles/osLab.dir/source/old/m_client.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/osLab.dir/source/old/m_client.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/konstantin/CLionProjects/Os/source/old/m_client.cpp -o CMakeFiles/osLab.dir/source/old/m_client.cpp.s
-
-CMakeFiles/osLab.dir/source/old/m_server.cpp.o: CMakeFiles/osLab.dir/flags.make
-CMakeFiles/osLab.dir/source/old/m_server.cpp.o: ../source/old/m_server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/osLab.dir/source/old/m_server.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/osLab.dir/source/old/m_server.cpp.o -c /home/konstantin/CLionProjects/Os/source/old/m_server.cpp
-
-CMakeFiles/osLab.dir/source/old/m_server.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/osLab.dir/source/old/m_server.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/konstantin/CLionProjects/Os/source/old/m_server.cpp > CMakeFiles/osLab.dir/source/old/m_server.cpp.i
-
-CMakeFiles/osLab.dir/source/old/m_server.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/osLab.dir/source/old/m_server.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/konstantin/CLionProjects/Os/source/old/m_server.cpp -o CMakeFiles/osLab.dir/source/old/m_server.cpp.s
-
 CMakeFiles/osLab.dir/source/util/common.cpp.o: CMakeFiles/osLab.dir/flags.make
 CMakeFiles/osLab.dir/source/util/common.cpp.o: ../source/util/common.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/osLab.dir/source/util/common.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/osLab.dir/source/util/common.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/osLab.dir/source/util/common.cpp.o -c /home/konstantin/CLionProjects/Os/source/util/common.cpp
 
 CMakeFiles/osLab.dir/source/util/common.cpp.i: cmake_force
@@ -109,35 +83,9 @@ CMakeFiles/osLab.dir/source/util/common.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/osLab.dir/source/util/common.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/konstantin/CLionProjects/Os/source/util/common.cpp -o CMakeFiles/osLab.dir/source/util/common.cpp.s
 
-CMakeFiles/osLab.dir/source/old/m_archiver.cpp.o: CMakeFiles/osLab.dir/flags.make
-CMakeFiles/osLab.dir/source/old/m_archiver.cpp.o: ../source/old/m_archiver.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/osLab.dir/source/old/m_archiver.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/osLab.dir/source/old/m_archiver.cpp.o -c /home/konstantin/CLionProjects/Os/source/old/m_archiver.cpp
-
-CMakeFiles/osLab.dir/source/old/m_archiver.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/osLab.dir/source/old/m_archiver.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/konstantin/CLionProjects/Os/source/old/m_archiver.cpp > CMakeFiles/osLab.dir/source/old/m_archiver.cpp.i
-
-CMakeFiles/osLab.dir/source/old/m_archiver.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/osLab.dir/source/old/m_archiver.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/konstantin/CLionProjects/Os/source/old/m_archiver.cpp -o CMakeFiles/osLab.dir/source/old/m_archiver.cpp.s
-
-CMakeFiles/osLab.dir/source/old/m_checker.cpp.o: CMakeFiles/osLab.dir/flags.make
-CMakeFiles/osLab.dir/source/old/m_checker.cpp.o: ../source/old/m_checker.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/osLab.dir/source/old/m_checker.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/osLab.dir/source/old/m_checker.cpp.o -c /home/konstantin/CLionProjects/Os/source/old/m_checker.cpp
-
-CMakeFiles/osLab.dir/source/old/m_checker.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/osLab.dir/source/old/m_checker.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/konstantin/CLionProjects/Os/source/old/m_checker.cpp > CMakeFiles/osLab.dir/source/old/m_checker.cpp.i
-
-CMakeFiles/osLab.dir/source/old/m_checker.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/osLab.dir/source/old/m_checker.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/konstantin/CLionProjects/Os/source/old/m_checker.cpp -o CMakeFiles/osLab.dir/source/old/m_checker.cpp.s
-
 CMakeFiles/osLab.dir/source/o_client.cpp.o: CMakeFiles/osLab.dir/flags.make
 CMakeFiles/osLab.dir/source/o_client.cpp.o: ../source/o_client.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/osLab.dir/source/o_client.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/osLab.dir/source/o_client.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/osLab.dir/source/o_client.cpp.o -c /home/konstantin/CLionProjects/Os/source/o_client.cpp
 
 CMakeFiles/osLab.dir/source/o_client.cpp.i: cmake_force
@@ -150,7 +98,7 @@ CMakeFiles/osLab.dir/source/o_client.cpp.s: cmake_force
 
 CMakeFiles/osLab.dir/source/o_middle_server.cpp.o: CMakeFiles/osLab.dir/flags.make
 CMakeFiles/osLab.dir/source/o_middle_server.cpp.o: ../source/o_middle_server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/osLab.dir/source/o_middle_server.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/osLab.dir/source/o_middle_server.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/osLab.dir/source/o_middle_server.cpp.o -c /home/konstantin/CLionProjects/Os/source/o_middle_server.cpp
 
 CMakeFiles/osLab.dir/source/o_middle_server.cpp.i: cmake_force
@@ -163,7 +111,7 @@ CMakeFiles/osLab.dir/source/o_middle_server.cpp.s: cmake_force
 
 CMakeFiles/osLab.dir/source/o_left_server.cpp.o: CMakeFiles/osLab.dir/flags.make
 CMakeFiles/osLab.dir/source/o_left_server.cpp.o: ../source/o_left_server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/osLab.dir/source/o_left_server.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/osLab.dir/source/o_left_server.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/osLab.dir/source/o_left_server.cpp.o -c /home/konstantin/CLionProjects/Os/source/o_left_server.cpp
 
 CMakeFiles/osLab.dir/source/o_left_server.cpp.i: cmake_force
@@ -176,7 +124,7 @@ CMakeFiles/osLab.dir/source/o_left_server.cpp.s: cmake_force
 
 CMakeFiles/osLab.dir/source/o_right_server.cpp.o: CMakeFiles/osLab.dir/flags.make
 CMakeFiles/osLab.dir/source/o_right_server.cpp.o: ../source/o_right_server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/osLab.dir/source/o_right_server.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/osLab.dir/source/o_right_server.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/osLab.dir/source/o_right_server.cpp.o -c /home/konstantin/CLionProjects/Os/source/o_right_server.cpp
 
 CMakeFiles/osLab.dir/source/o_right_server.cpp.i: cmake_force
@@ -190,11 +138,7 @@ CMakeFiles/osLab.dir/source/o_right_server.cpp.s: cmake_force
 # Object files for target osLab
 osLab_OBJECTS = \
 "CMakeFiles/osLab.dir/main.cpp.o" \
-"CMakeFiles/osLab.dir/source/old/m_client.cpp.o" \
-"CMakeFiles/osLab.dir/source/old/m_server.cpp.o" \
 "CMakeFiles/osLab.dir/source/util/common.cpp.o" \
-"CMakeFiles/osLab.dir/source/old/m_archiver.cpp.o" \
-"CMakeFiles/osLab.dir/source/old/m_checker.cpp.o" \
 "CMakeFiles/osLab.dir/source/o_client.cpp.o" \
 "CMakeFiles/osLab.dir/source/o_middle_server.cpp.o" \
 "CMakeFiles/osLab.dir/source/o_left_server.cpp.o" \
@@ -204,11 +148,7 @@ osLab_OBJECTS = \
 osLab_EXTERNAL_OBJECTS =
 
 osLab: CMakeFiles/osLab.dir/main.cpp.o
-osLab: CMakeFiles/osLab.dir/source/old/m_client.cpp.o
-osLab: CMakeFiles/osLab.dir/source/old/m_server.cpp.o
 osLab: CMakeFiles/osLab.dir/source/util/common.cpp.o
-osLab: CMakeFiles/osLab.dir/source/old/m_archiver.cpp.o
-osLab: CMakeFiles/osLab.dir/source/old/m_checker.cpp.o
 osLab: CMakeFiles/osLab.dir/source/o_client.cpp.o
 osLab: CMakeFiles/osLab.dir/source/o_middle_server.cpp.o
 osLab: CMakeFiles/osLab.dir/source/o_left_server.cpp.o
@@ -216,7 +156,7 @@ osLab: CMakeFiles/osLab.dir/source/o_right_server.cpp.o
 osLab: CMakeFiles/osLab.dir/build.make
 osLab: libs/lib4aio/liblib4aio.a
 osLab: CMakeFiles/osLab.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable osLab"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable osLab"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/osLab.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

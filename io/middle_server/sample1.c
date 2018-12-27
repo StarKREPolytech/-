@@ -1,4 +1,1 @@
-int main() {
-    printf("\nHello world!\n");
-    return 0;
-}
+#include<stdio>main(){printf("Hello");}
