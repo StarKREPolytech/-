@@ -23,6 +23,10 @@ void o_client::start()
     sleep(5);
     log_info(TAG, "ASK!");
     this->ask();
+    while (true) {
+        sleep(25);
+        this->ask();
+    }
 }
 
 void o_client::ask()

@@ -17,51 +17,34 @@ using namespace std;
 
 #define TAG "O_LEFT_SERVER"
 
-#define PATH "../io/left_server/sample1.c"
+#define PATH "../io/left_server/sample1.txt"
 
-void o_left_server::start() {
+void o_left_server::start()
+{
     log_info(TAG, "START");
     while (true) {
-
-        //Receive program:
-        char program[BUFFER_SIZE] = {0};
-        while (strlen(program) == 0) {
-            read(this->middle_server_input_channel, program, BUFFER_SIZE);
+        char middle_server_request[BUFFER_SIZE] = {0};
+        while (strlen(middle_server_request) == 0) {
+            read(this->middle_server_input_channel, middle_server_request, BUFFER_SIZE);
         }
-        log_info_string(TAG, "PROGRAM!", program);
-
-        //Send response to the middle server:
+        str_builder *builder = read_file_by_str_builder(PATH);
+        char *source_list = builder->pop();
+        if (add_to_list(&source_list, middle_server_request)) {
+            ofstream file;
+            file.open(PATH);
+            file << source_list;
+            file.close();
+            log_info_string(TAG, "REFRESHED LIST!", source_list);
+        }
+        bzero(middle_server_request, BUFFER_SIZE);
         write(this->middle_server_output_channel, ACCEPT_STATUS, 7);
-
-        //Save file:
-        ofstream file;
-        file.open(PATH);
-        file << program;
-        file.close();
-
-        //Compile file:
-        system("gcc  ../io/left_server/sample1.c -o ../io/left_server/sample1");
-
-        if (fork() == 0) {
-
-            //Launch a program:
-            system("../io/left_server/sample1");
-            log_info(TAG, "PROGRAM WAS LAUNCHED!!!");
-        } else {
-
-            //Send program to the right server:
-            write(this->output_right_anonymous_gate, program, BUFFER_SIZE);
-            char right_response[BUFFER_SIZE] = {0};
-            while (strlen(right_response) == 0) {
-                read(this->input_right_anonymous_gate, right_response, BUFFER_SIZE);
-                log_info_string(TAG, "RIGHT RESPONSE:", right_response);
-            }
-            if (strcmp(right_response, ACCEPT_STATUS) == 0) {
-                log_info(TAG, "Program was sent!");
-            }
-            bzero(right_response, BUFFER_SIZE);
-            bzero(program, BUFFER_SIZE);
+        write(this->output_right_anonymous_gate, source_list, BUFFER_SIZE);
+        char right_response[BUFFER_SIZE] = {0};
+        while (strlen(right_response) == 0) {
+            read(this->input_right_anonymous_gate, right_response, BUFFER_SIZE);
         }
-
+        if (strcmp(right_response, ACCEPT_STATUS)) {
+            log_info(TAG, "OK!");
+        }
     }
 }

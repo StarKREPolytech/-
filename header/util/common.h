@@ -36,6 +36,6 @@ using namespace lib4aio;
 
 int *create_anonymous_pipeline();
 
-bool is_equals_lists(const char *list_1, const char *list_2);
+bool add_to_list(char **list_1, const char *list_2);
 
 #endif //COMMON_H

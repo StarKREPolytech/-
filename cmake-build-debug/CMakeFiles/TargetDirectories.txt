@@ -1,6 +1,6 @@
-/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles/osLab.dir
-/home/konstantin/CLionProjects/Os/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/konstantin/CLionProjects/Os/cmake-build-debug/libs/lib4aio/CMakeFiles/rebuild_cache.dir
-/home/konstantin/CLionProjects/Os/cmake-build-debug/libs/lib4aio/CMakeFiles/lib4aio.dir
-/home/konstantin/CLionProjects/Os/cmake-build-debug/libs/lib4aio/CMakeFiles/edit_cache.dir
+/home/ihb/IgorProjects/projects/Os/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/ihb/IgorProjects/projects/Os/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/ihb/IgorProjects/projects/Os/cmake-build-debug/CMakeFiles/osLab.dir
+/home/ihb/IgorProjects/projects/Os/cmake-build-debug/libs/lib4aio/CMakeFiles/edit_cache.dir
+/home/ihb/IgorProjects/projects/Os/cmake-build-debug/libs/lib4aio/CMakeFiles/rebuild_cache.dir
+/home/ihb/IgorProjects/projects/Os/cmake-build-debug/libs/lib4aio/CMakeFiles/lib4aio.dir

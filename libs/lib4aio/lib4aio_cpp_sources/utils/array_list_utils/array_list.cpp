@@ -88,7 +88,7 @@ namespace lib4aio {
     template<typename T>
     inline array_list<T> *array_list<T>::collect_by(function<bool(T *)> func)
     {
-        array_list<T> *collected_list = new array_list<T>();
+        array_list<T> *collected_list = new array_list<T>(true);
         for (unsigned i = 0; i < this->size; ++i) {
             T *element = this->elements[i];
             if (func(element)) {

@@ -116,27 +116,26 @@ void o_middle_server::sync()
                 read(this->input_right_anonymous_gate, right_response, BUFFER_SIZE);
             }
             log_info_string(TAG, "RIGHT_RESPONSE", right_response);
-            if (is_equals_lists(source_list, right_response)) {
+            if (add_to_list(&source_list, right_response)) {
                 this->is_syncing = false;
                 log_info(TAG, "Sync is complete");
             } else {
-                source_list = right_response;
                 ofstream file;
                 file.open(PATH);
                 file << right_response;
                 file.close();
-                log_info_string(TAG, "REFRESHED DATA!", source_list);
+                log_info_string(TAG, "REFRESHED LIST!", source_list);
             }
             bzero(right_response, BUFFER_SIZE);
         }
         bzero(left_response, BUFFER_SIZE);
     }
-    write(this->output_client_channel, source_list, 7);
+    write(this->output_client_channel, source_list, BUFFER_SIZE);
     char client_response[BUFFER_SIZE] = {0};
     while (strlen(client_response) == 0) {
         read(this->input_client_channel, client_response, BUFFER_SIZE);
         if (strcmp(client_response, ACCEPT_STATUS) == 0) {
-            log_info(TAG, "SYNC WAS SUCCESSFUL!");
+            log_info(TAG, "LIST WAS SENT!");
         }
     }
     bzero(client_response, BUFFER_SIZE);
