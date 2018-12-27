@@ -1,5 +1,5 @@
 
-#include <m_server.h>
+#include <old/m_server.h>
 #include <zconf.h>
 #include <cstdio>
 #include <netinet/in.h>
@@ -11,7 +11,7 @@
 #include <string>
 #include <util/common.h>
 #include <csignal>
-#include <m_checker.h>
+#include <old/m_checker.h>
 #include <fstream>
 
 #define BUFFER_SIZE 1024
@@ -47,15 +47,15 @@ m_server::~m_server()
 void m_server::start()
 {
     log_info(TAG, "START!");
-
     //Create channels:
     this->request_channel = open(REQUEST_CHANNEL_NAME, O_RDONLY);
     this->response_channel = open(RESPONSE_CHANNEL_NAME, O_WRONLY);
-//    this->input_archive_channel = open(ARCHIVE_CHANNEL_NAME_1, O_RDONLY);
-//    this->output_archive_channel = open(ARCHIVE_CHANNEL_NAME_2, O_WRONLY);
-
     //Launch service:
-    this->launch_service();
+    if (fork() == 0) {
+        this->launch_service();
+    } else {
+        this->listen_file();
+    }
 }
 
 void m_server::launch_service()
@@ -86,7 +86,7 @@ void m_server::launch_service()
 
         //Buffer has read:
         if (strlen(buffer) > 0) {
-            log_info_string(TAG, "REQUEST:", buffer);
+            log_info_string(TAG, "SYNC_REQUEST:", buffer);
             char *response = this->handle_request(buffer);
             log_info_string(TAG, "RESPONSE:", response);
             send(m_socket, ACCEPT_STATUS, STATUS_SIZE, 0);
@@ -179,3 +179,32 @@ void m_server::set_output_anonymous_gate(int output_anonymous_gate)
 {
     this->output_anonymous_gate = output_anonymous_gate;
 }
+
+void m_server::listen_file()
+{
+
+}
+
+//void m_server::listen_file()
+//{
+//    while(true) {
+//        const long file_last_modified_time = get_file_last_modified_time(TARGET_FILE_PATH);
+//        bool has_file_changed = this->last_modified_file < file_last_modified_time;
+//        if (has_file_changed) {
+//            this->last_modified_file = file_last_modified_time;
+//
+//            //Send last time:
+//            const string last_time = to_string(this->last_modified_file);
+//            int m_socket = socket(AF_INET, SOCK_STREAM, 0);
+//            this->call_by_socket(last_time.c_str(), last_time.size(), m_socket);
+//
+//            //Receive response:
+//            const char *response = this->receive_by_socket(m_socket);
+//            const bool is_successful = strcmp(response, ACCEPT_STATUS) == 0;
+//            if (is_successful) {
+//                this->call_by_named_channel();
+//            }
+//            delete response;
+//        }
+//    }
+//}

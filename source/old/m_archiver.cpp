@@ -1,5 +1,5 @@
 
-#include <m_archiver.h>
+#include <old/m_archiver.h>
 #include <fcntl.h>
 #include <cstring>
 #include <zconf.h>
@@ -27,7 +27,7 @@ void m_archiver::start()
         while (strlen(buffer) == 0) {
             read(this->input_anonymous_gate, buffer, BUFFER_SIZE);
         }
-        log_info_string(TAG, "GET REQUEST FROM CHECKER", buffer);
+        log_info_string(TAG, "GET SYNC_REQUEST FROM CHECKER", buffer);
         string::size_type type;
         const long last_modified_archive = get_file_last_modified_time(PATH);
         const long last_modified_from_client = stol(buffer, &type);

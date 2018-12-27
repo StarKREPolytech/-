@@ -1,9 +1,33 @@
 #ifndef COMMON_H
 #define COMMON_H
 
-#define ARCHIVE_CHANNEL_NAME_1 "archive_channel___1"
+#define PORT 8080
 
-#define ARCHIVE_CHANNEL_NAME_2 "archive_channel___2"
+#define ADDRESS "127.0.0.1"
+
+#define BUFFER_SIZE 1024
+
+#define ACCEPT_STATUS "ACCEPT"
+
+/**
+ * Interaction.
+ */
+
+#define SYNC_REQUEST "SYNC"
+
+#define START_SYNC "START SYNC"
+
+#define IS_SYNCING "IS_SYNCING"
+
+
+/**
+ * Client-server.
+ */
+
+#define INPUT_CHANNEL_NAME "server_input_channel"
+
+#define OUTPUT_CHANNEL_NAME "server_output_channel"
+
 
 long get_file_last_modified_time(const char *path);
 

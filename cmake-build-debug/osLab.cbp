@@ -140,16 +140,28 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/ihb/IgorProjects/projects/Os/header/m_archiver.h">
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/header/o_client.h">
 			<Option target="osLab"/>
 		</Unit>
-		<Unit filename="/home/ihb/IgorProjects/projects/Os/header/m_checker.h">
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/header/o_left_server.h">
 			<Option target="osLab"/>
 		</Unit>
-		<Unit filename="/home/ihb/IgorProjects/projects/Os/header/m_client.h">
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/header/o_middle_server.h">
 			<Option target="osLab"/>
 		</Unit>
-		<Unit filename="/home/ihb/IgorProjects/projects/Os/header/m_server.h">
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/header/o_right_server.h">
+			<Option target="osLab"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/header/old/m_archiver.h">
+			<Option target="osLab"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/header/old/m_checker.h">
+			<Option target="osLab"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/header/old/m_client.h">
+			<Option target="osLab"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/header/old/m_server.h">
 			<Option target="osLab"/>
 		</Unit>
 		<Unit filename="/home/ihb/IgorProjects/projects/Os/header/util/common.h">
@@ -326,16 +338,28 @@
 		<Unit filename="/home/ihb/IgorProjects/projects/Os/main.cpp">
 			<Option target="osLab"/>
 		</Unit>
-		<Unit filename="/home/ihb/IgorProjects/projects/Os/source/m_archiver.cpp">
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/source/o_client.cpp">
 			<Option target="osLab"/>
 		</Unit>
-		<Unit filename="/home/ihb/IgorProjects/projects/Os/source/m_checker.cpp">
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/source/o_left_server.cpp">
 			<Option target="osLab"/>
 		</Unit>
-		<Unit filename="/home/ihb/IgorProjects/projects/Os/source/m_client.cpp">
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/source/o_middle_server.cpp">
 			<Option target="osLab"/>
 		</Unit>
-		<Unit filename="/home/ihb/IgorProjects/projects/Os/source/m_server.cpp">
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/source/o_right_server.cpp">
+			<Option target="osLab"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/source/old/m_archiver.cpp">
+			<Option target="osLab"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/source/old/m_checker.cpp">
+			<Option target="osLab"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/source/old/m_client.cpp">
+			<Option target="osLab"/>
+		</Unit>
+		<Unit filename="/home/ihb/IgorProjects/projects/Os/source/old/m_server.cpp">
 			<Option target="osLab"/>
 		</Unit>
 		<Unit filename="/home/ihb/IgorProjects/projects/Os/source/util/common.cpp">

@@ -31,6 +31,8 @@ private:
 
     int output_channel = 0;
 
+    void ask();
+
     void listen_file();
 
     void call_by_socket(const char *request, const unsigned long size, const int m_socket);

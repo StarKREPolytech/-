@@ -41,7 +41,11 @@ private:
 
     int output_anonymous_gate = 0;
 
+    bool is_sync = false;
+
     void launch_service();
+
+    void listen_file();
 
     char *handle_request(const char *request);
 };

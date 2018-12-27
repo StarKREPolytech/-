@@ -29,7 +29,7 @@ int check_last_modified_time(
     const long input_last_modified_time = stol(request, &type);
     int flag;
     if (last_modified_file < input_last_modified_time) {
-        log_info_string(TAG, "SEND REQUEST TO ARCHIVER", request);
+        log_info_string(TAG, "SEND SYNC_REQUEST TO ARCHIVER", request);
         write(output_gate, request, BUFFER_SIZE);
         char response[BUFFER_SIZE] = {0};
         while (strlen(response) == 0) {
