@@ -12,18 +12,15 @@
 #include <fcntl.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#include <old/m_client.h>
-#include <old/m_server.h>
 #include <csignal>
 #include <util/common.h>
-#include <old/m_archiver.h>
 #include <o_client.h>
 #include <o_middle_server.h>
 #include <o_left_server.h>
 #include <o_right_server.h>
 
-int main()
-{
+int main() {
+
     //Open named pipes:
     mknod(CHANNEL_1_NAME, S_IFIFO | 0666, 0);
     mknod(CHANNEL_2_NAME, S_IFIFO | 0666, 0);
@@ -36,7 +33,7 @@ int main()
     const int *const right_left = create_anonymous_pipeline();
     const int *const right_middle = create_anonymous_pipeline();
 
-
+    //Configure system:
     o_client *client = new o_client();
     o_middle_server *middle_server = new o_middle_server();
     middle_server->input_left_anonymous_gate = left_middle[0];
@@ -53,6 +50,8 @@ int main()
     right_server->output_middle_anonymous_gate = right_middle[1];
     right_server->left_server_input_channel = left_right[0];
     right_server->left_server_output_channel = right_left[1];
+
+    //Launch processes:
     if (fork() == 0) {
         if (fork() == 0) {
             if (fork() == 0) {

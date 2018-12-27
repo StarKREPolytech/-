@@ -15,6 +15,8 @@
 
 #define ACCEPT_STATUS "ACCEPT"
 
+#define REJECT_STATUS "REJECT"
+
 /**
  * Client-server.
  */

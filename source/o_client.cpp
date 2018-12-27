@@ -1,14 +1,13 @@
-
 #include <o_client.h>
 #include <sys/socket.h>
 #include <cstring>
-#include <zconf.h>
 #include <lib4aio/lib4aio_cpp_headers/utils/log_utils/log_utils.h>
 #include <lib4aio/lib4aio_cpp_headers/utils/string_utils/common.h>
 #include <arpa/inet.h>
 #include <fcntl.h>
 #include <util/common.h>
 #include <iostream>
+#include <unistd.h>
 
 using namespace lib4aio;
 
@@ -24,11 +23,6 @@ void o_client::start()
     sleep(5);
     log_info(TAG, "ASK!");
     this->ask();
-    while (true) {
-        sleep(20);
-        log_info(TAG, "ASK!");
-        this->ask();
-    }
 }
 
 void o_client::ask()
@@ -36,20 +30,27 @@ void o_client::ask()
     //Send last time:
     int m_socket = socket(AF_INET, SOCK_STREAM, 0);
     this->call_by_socket(MAKE_REQUEST, 5, m_socket);
-    //Receive socket_response:
     const char *socket_response = this->receive_by_socket(m_socket);
     log_info_string(TAG, "SERVER RESPONSE", socket_response);
+
+    //Check status:
     if (strcmp(socket_response, ACCEPT_STATUS) == 0) {
+
+        //Input program:
         char program[BUFFER_SIZE] = {0};
         cin >> program;
+
+        //Send program:
         write(this->output_channel, ACCEPT_STATUS, 7);
+
+        //Wait response:
         char channel_response[BUFFER_SIZE] = {0};
         while (strlen(channel_response) == 0) {
             read(this->input_channel, channel_response, BUFFER_SIZE);
             log_info_string(TAG, "SERVER_RESPONSE: ", channel_response);
         }
         if (strcmp(channel_response, ACCEPT_STATUS) == 0) {
-            log_info(TAG, "PROGRAM COMPLETED!");
+            log_info(TAG, "PROGRAM HAS PERFORMED!");
         }
         bzero(channel_response, BUFFER_SIZE);
     }

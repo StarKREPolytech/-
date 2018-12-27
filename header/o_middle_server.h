@@ -25,9 +25,7 @@ private:
 
     void launch_service();
 
-    void listen_file();
-
-    void sync();
+    void receive_program();
 };
 
 #endif //O_MIDDLE_SERVER_H

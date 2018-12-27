@@ -41,7 +41,7 @@ void o_right_server::start()
             file.open(PATH);
             file << left_server_content;
             file.close();
-            system("tar -czvf ../io/right_server/sample1.tar.gz ../io/right_server/sample1.txt");
+            system("tar -czvf ../io/right_server/sample1.tar.gz ../io/right_server/sample1.c");
             log_info_string(TAG, "ARCHIVED DATA!", left_server_content);
         }
         bzero(left_server_request, BUFFER_SIZE);

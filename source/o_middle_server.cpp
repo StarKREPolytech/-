@@ -1,6 +1,5 @@
 
 #include <o_middle_server.h>
-#include <zconf.h>
 #include <lib4aio/lib4aio_cpp_headers/utils/log_utils/log_utils.h>
 #include <fcntl.h>
 #include <netinet/in.h>
@@ -15,6 +14,7 @@
 #include <lib4aio/lib4aio_cpp_headers/utils/str_hook_utils/str_hook/str_hook.h>
 #include <lib4aio/lib4aio_cpp_headers/utils/str_hook_utils/str_hook_list/str_hook_list.h>
 #include <lib4aio/lib4aio_cpp_headers/utils/array_list_utils/array_list.h>
+#include <unistd.h>
 
 using namespace lib4aio;
 
@@ -22,26 +22,21 @@ using namespace std;
 
 #define TAG "O_MIDDLE_SERVER"
 
-#define PATH "../io/middle_server/sample1.txt"
+#define PATH "../io/middle_server/sample1.c"
 
-void o_middle_server::start()
-{
+void o_middle_server::start() {
     log_info(TAG, "START!");
+
     //Create channels:
     this->input_client_channel = open(CHANNEL_1_NAME, O_RDONLY);
     this->output_client_channel = open(CHANNEL_2_NAME, O_WRONLY);
+
     //Launch service:
-    if (fork() == 0) {
-        log_info(TAG, "START LISTENING");
-        this->listen_file();
-    } else {
-        log_info(TAG, "START SERVICE");
-        this->launch_service();
-    }
+    this->launch_service();
 }
 
-void o_middle_server::launch_service()
-{
+void o_middle_server::launch_service() {
+
     //Create socket:
     sockaddr_in address;
     int opt = 1;
@@ -66,33 +61,37 @@ void o_middle_server::launch_service()
         printf(">>>2!\n");
 
         //Buffer has read:
-        if (strlen(buffer) > 0) {
-            log_info_string(TAG, "SYNC_REQUEST:", buffer);
-            if (strcmp(buffer, SYNC_REQUEST) == 0) {
-                if (this->is_syncing) {
-                    send(m_socket, IS_SYNCING, 32, 0);
-                } else {
-                    send(m_socket, START_SYNC, 32, 0);
-                    this->sync();
-                }
-                bzero(buffer, BUFFER_SIZE);
+        if (strcmp(buffer, MAKE_REQUEST) == 0) {
+            log_info_string(TAG, "MAKE REQUEST:", buffer);
+            if (this->is_syncing) {
+                send(m_socket, ACCEPT_STATUS, 32, 0);
+
+                //Receive program:
+                this->receive_program();
+            } else {
+                send(m_socket, REJECT_STATUS, 32, 0);
             }
+            bzero(buffer, BUFFER_SIZE);
         }
         printf(">>>3!\n");
-
     }
 }
 
-void o_middle_server::listen_file()
-{
-    while (true) {
-        sleep(10);
-        this->sync();
+void o_middle_server::receive_program() {
+    char program[BUFFER_SIZE] = {0};
+    while (strlen(program) == 0) {
+        read(this->input_client_channel, program, BUFFER_SIZE);
     }
+    log_info_string(TAG, "PROGRAM!", program);
+    ofstream file;
+    file.open(PATH);
+    file << program;
+    file.close();
+    system("gcc  ../io/middle_server/sample1.c -o ../io/middle_server/sample1");
+    bzero(program, BUFFER_SIZE);
 }
 
-void o_middle_server::sync()
-{
+void o_middle_server::sync() {
     this->is_syncing = true;
     while (this->is_syncing) {
         log_info(TAG, "START_SYNCING");
@@ -128,7 +127,7 @@ void o_middle_server::sync()
                 file.open(PATH);
                 file << right_content;
                 file.close();
-                system("tar -czvf ../io/middle_server/sample1.tar.gz ../io/middle_server/sample1.txt");
+                system("tar -czvf ../io/middle_server/sample1.tar.gz ../io/middle_server/sample1.c");
                 log_info_string(TAG, "ARCHIVED DATA!", right_content);
             }
             bzero(right_response, BUFFER_SIZE);
