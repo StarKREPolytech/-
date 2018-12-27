@@ -13,15 +13,11 @@ using namespace lib4aio;
 
 #define TAG "O_CLIENT"
 
-static const char *const REQUEST_CHANNEL_NAME = "server_request_channel";
-
-static const char *const RESPONSE_CHANNEL_NAME = "server_response_channel";
-
 void o_client::start()
 {
     log_info(TAG, "START!");
-    this->output_channel = open(REQUEST_CHANNEL_NAME, O_WRONLY);
-    this->input_channel = open(RESPONSE_CHANNEL_NAME, O_RDONLY);
+    this->output_channel = open(CHANNEL_1_NAME, O_WRONLY);
+    this->input_channel = open(CHANNEL_2_NAME, O_RDONLY);
     sleep(5);
     log_info(TAG, "ASK!");
     this->ask();
@@ -42,14 +38,14 @@ void o_client::ask()
     const char *socket_response = this->receive_by_socket(m_socket);
     if (strcmp(socket_response, START_SYNC) == 0 || strcmp(socket_response, IS_SYNCING) == 0) {
         log_info_string(TAG, "SERVER RESPONSE", socket_response);
-//        char channel_response[BUFFER_SIZE] = {0};
-//        while (strlen(channel_response) == 0) {
-//            read(this->input_channel, channel_response, BUFFER_SIZE);
-//            log_info_string(TAG, "SYNC_RESPONSE: ", channel_response);
-//        }
-//        if (strcmp(channel_response, ACCEPT_STATUS) == 0) {
-//            write(this->output_channel, ACCEPT_STATUS, 7);
-//        }
+        char channel_response[BUFFER_SIZE] = {0};
+        while (strlen(channel_response) == 0) {
+            read(this->input_channel, channel_response, BUFFER_SIZE);
+            log_info_string(TAG, "SYNC_RESPONSE: ", channel_response);
+        }
+        if (strcmp(channel_response, ACCEPT_STATUS) == 0) {
+            write(this->output_channel, ACCEPT_STATUS, 7);
+        }
     }
     delete socket_response;
 }

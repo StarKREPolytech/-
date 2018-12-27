@@ -24,9 +24,9 @@
  * Client-server.
  */
 
-#define INPUT_CHANNEL_NAME "server_input_channel"
+#define CHANNEL_1_NAME "channel_1"
 
-#define OUTPUT_CHANNEL_NAME "server_output_channel"
+#define CHANNEL_2_NAME "channel_2"
 
 
 long get_file_last_modified_time(const char *path);

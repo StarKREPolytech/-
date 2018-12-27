@@ -19,7 +19,7 @@ using namespace std;
 
 #define PATH "../io/left_server/sample1.txt"
 
-void left_server::start()
+void o_left_server::start()
 {
     while (true) {
         char middle_server_request[BUFFER_SIZE] = {0};
@@ -38,7 +38,7 @@ void left_server::start()
             file.open(PATH);
             file << middle_server_content;
             file.close();
-            system("tar -czvf ../io/left_server/sample1.tar.gz ../io/left_server/sample1.txt");
+            system("tar -czvf ../io/o_left_server/sample1.tar.gz ../io/o_left_server/sample1.txt");
             log_info_string(TAG, "ARCHIVED DATA!", middle_server_content);
         }
         bzero(middle_server_request, BUFFER_SIZE);

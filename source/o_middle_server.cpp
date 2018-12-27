@@ -28,8 +28,8 @@ void o_middle_server::start()
 {
     log_info(TAG, "START!");
     //Create channels:
-    this->output_client_channel = open(OUTPUT_CHANNEL_NAME, O_WRONLY);
-    this->input_client_channel = open(INPUT_CHANNEL_NAME, O_RDONLY);
+    this->input_client_channel = open(CHANNEL_1_NAME, O_RDONLY);
+    this->output_client_channel = open(CHANNEL_2_NAME, O_WRONLY);
     //Launch service:
     if (fork() == 0) {
         log_info(TAG, "START LISTENING");

@@ -7,14 +7,6 @@ public:
 
     void start();
 
-private:
-
-    bool is_syncing = false;
-
-    int output_client_channel = 0;
-
-    int input_client_channel = 0;
-
     int input_left_anonymous_gate = 0;
 
     int output_left_anonymous_gate = 0;
@@ -22,6 +14,14 @@ private:
     int input_right_anonymous_gate = 0;
 
     int output_right_anonymous_gate = 0;
+
+private:
+
+    bool is_syncing = false;
+
+    int output_client_channel = 0;
+
+    int input_client_channel = 0;
 
     void launch_service();
 

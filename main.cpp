@@ -19,10 +19,8 @@
 #include <old/m_archiver.h>
 #include <o_client.h>
 #include <o_middle_server.h>
-
-static const char *const REQUEST_CHANNEL_NAME = "server_request_channel";
-
-static const char *const RESPONSE_CHANNEL_NAME = "server_response_channel";
+#include <o_left_server.h>
+#include <o_right_server.h>
 
 //int main()
 //{
@@ -33,8 +31,8 @@ static const char *const RESPONSE_CHANNEL_NAME = "server_response_channel";
 //    const int *archiver_to_server_pipe = create_anonymous_pipeline();
 //
 //    //Open named pipes:
-//    mknod(OUTPUT_CHANNEL_NAME, S_IFIFO | 0666, 0);
-//    mknod(INPUT_CHANNEL_NAME, S_IFIFO | 0666, 0);
+//    mknod(CHANNEL_2_NAME, S_IFIFO | 0666, 0);
+//    mknod(CHANNEL_1_NAME, S_IFIFO | 0666, 0);
 //    mknod(ARCHIVE_CHANNEL_NAME_1, S_IFIFO | 0666, 0);
 //    mknod(ARCHIVE_CHANNEL_NAME_2, S_IFIFO | 0666, 0);
 //
@@ -67,28 +65,47 @@ static const char *const RESPONSE_CHANNEL_NAME = "server_response_channel";
 //    }
 //}
 
-int main() {
-
+int main()
+{
     //Open named pipes:
-    mknod(REQUEST_CHANNEL_NAME, S_IFIFO | 0666, 0);
-    mknod(RESPONSE_CHANNEL_NAME, S_IFIFO | 0666, 0);
+    mknod(CHANNEL_1_NAME, S_IFIFO | 0666, 0);
+    mknod(CHANNEL_2_NAME, S_IFIFO | 0666, 0);
+
+    //Open anonymous pipes:
+    const int *const middle_left = create_anonymous_pipeline();
+    const int *const middle_right = create_anonymous_pipeline();
+    const int *const left_right = create_anonymous_pipeline();
+    const int *const left_middle = create_anonymous_pipeline();
+    const int *const right_left = create_anonymous_pipeline();
+    const int *const right_middle = create_anonymous_pipeline();
+
+
     o_client *client = new o_client();
-    o_middle_server * server = new o_middle_server();
-//    if (fork() == 0) {
-//        if (fork() == 0) {
-//            if (fork() == 0) {
-//                server->start();
-//            } else {
-//                client->start();
-//            }
-//        } else {
-//
-//        }
-//    } else {
-//
-//    }
+    o_middle_server *middle_server = new o_middle_server();
+    middle_server->input_left_anonymous_gate = left_middle[0];
+    middle_server->output_left_anonymous_gate = middle_left[1];
+    middle_server->input_right_anonymous_gate = right_middle[0];
+    middle_server->output_right_anonymous_gate = middle_right[1];
+    o_left_server *left_server = new o_left_server();
+    left_server->input_right_anonymous_gate = right_left[0];
+    left_server->output_right_anonymous_gate = left_right[1];
+    left_server->middle_server_input_channel = middle_left[0];
+    left_server->middle_server_output_channel = left_middle[1];
+    o_right_server *right_server = new o_right_server();
+    right_server->input_middle_anonymous_gate = middle_right[0];
+    right_server->output_middle_anonymous_gate = right_middle[1];
+    right_server->left_server_input_channel = left_right[0];
+    right_server->left_server_output_channel = right_left[1];
     if (fork() == 0) {
-        server->start();
+        if (fork() == 0) {
+            if (fork() == 0) {
+                left_server->start();
+            } else {
+                right_server->start();
+            }
+        } else {
+            middle_server->start();
+        }
     } else {
         client->start();
     }
