@@ -22,49 +22,6 @@
 #include <o_left_server.h>
 #include <o_right_server.h>
 
-//int main()
-//{
-//    //Open anonymous pipe:
-//    const int *checker_to_archiver_pipe = create_anonymous_pipeline();
-//    const int *archiver_to_checker_pipe = create_anonymous_pipeline();
-//    const int *server_to_archiver_pipe = create_anonymous_pipeline();
-//    const int *archiver_to_server_pipe = create_anonymous_pipeline();
-//
-//    //Open named pipes:
-//    mknod(CHANNEL_2_NAME, S_IFIFO | 0666, 0);
-//    mknod(CHANNEL_1_NAME, S_IFIFO | 0666, 0);
-//    mknod(ARCHIVE_CHANNEL_NAME_1, S_IFIFO | 0666, 0);
-//    mknod(ARCHIVE_CHANNEL_NAME_2, S_IFIFO | 0666, 0);
-//
-//
-////    const int output_server_channel = open(ARCHIVE_CHANNEL_NAME_1, O_WRONLY);
-////    const int input_server_channel = open(ARCHIVE_CHANNEL_NAME_2, O_RDONLY);
-//
-//    //Create client:
-//    m_client *client = new m_client();
-//    //Create server system:
-//    m_server *server = new m_server();
-//    server->set_input_anonymous_gate(archiver_to_checker_pipe[0]);
-//    server->set_output_anonymous_gate(checker_to_archiver_pipe[1]);
-//    server->input_archive_channel = archiver_to_server_pipe[0];
-//    server->output_archive_channel = server_to_archiver_pipe[1];
-//    m_archiver *archiver = new m_archiver();
-//    archiver->set_input_anonymous_gate(checker_to_archiver_pipe[0]);
-//    archiver->set_output_anonymous_gate(archiver_to_checker_pipe[1]);
-//    archiver->input_server_channel = server_to_archiver_pipe[0];
-//    archiver->output_server_channel = archiver_to_server_pipe[1];
-//    //Launch processes:
-//    if (fork() == 0) {
-//        if (fork() == 0) {
-//            server->start();
-//        } else {
-//            client->start();
-//        }
-//    } else {
-//        archiver->start();
-//    }
-//}
-
 int main()
 {
     //Open named pipes:
