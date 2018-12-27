@@ -29,19 +29,12 @@ void o_client::ask()
 {
     //Send last time:
     int m_socket = socket(AF_INET, SOCK_STREAM, 0);
-    this->call_by_socket(MAKE_REQUEST, 5, m_socket);
+    this->call_by_socket(GET_REQUEST, 5, m_socket);
     const char *socket_response = this->receive_by_socket(m_socket);
     log_info_string(TAG, "SERVER RESPONSE", socket_response);
 
     //Check status:
     if (strcmp(socket_response, ACCEPT_STATUS) == 0) {
-
-        //Input program:
-        char program[BUFFER_SIZE] = {0};
-        cin >> program;
-
-        //Send program:
-        write(this->output_channel, program, BUFFER_SIZE);
 
         //Wait response:
         char channel_response[BUFFER_SIZE] = {0};
@@ -49,10 +42,10 @@ void o_client::ask()
             read(this->input_channel, channel_response, BUFFER_SIZE);
             log_info_string(TAG, "SERVER_RESPONSE: ", channel_response);
         }
-        if (strcmp(channel_response, ACCEPT_STATUS) == 0) {
-            log_info(TAG, "PROGRAM HAS PERFORMED!");
-        }
-        bzero(program, BUFFER_SIZE);
+        printf("\n%s\n", channel_response);
+
+        //Send response:
+        write(this->output_channel, ACCEPT_STATUS, BUFFER_SIZE);
         bzero(channel_response, BUFFER_SIZE);
     }
     delete socket_response;

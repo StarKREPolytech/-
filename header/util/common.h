@@ -11,11 +11,13 @@
  * Interaction.
  */
 
-#define MAKE_REQUEST "MAKE"
+#define GET_REQUEST "GET"
 
 #define ACCEPT_STATUS "ACCEPT"
 
-#define REJECT_STATUS "REJECT"
+#define IS_SYNC "IS_SYNC"
+
+#define START_SYNC "START_SYNC"
 
 /**
  * Client-server.
