@@ -1,6 +1,13 @@
 #ifndef COMMON_H
 #define COMMON_H
 
+namespace lib4aio {
+
+    class str_hook_list;
+}
+
+using namespace lib4aio;
+
 #define PORT 8080
 
 #define ADDRESS "127.0.0.1"
@@ -27,9 +34,8 @@
 
 #define CHANNEL_2_NAME "channel_2"
 
-
-long get_file_last_modified_time(const char *path);
-
 int *create_anonymous_pipeline();
+
+bool is_equals_lists(const char *list_1, const char *list_2);
 
 #endif //COMMON_H

@@ -91,19 +91,19 @@ void o_middle_server::listen_file()
 
 void o_middle_server::sync()
 {
+    //Load file:
+    str_builder *builder = read_file_by_str_builder(PATH);
+    const size_t size = builder->size();
+    char *source_list = builder->pop();
+
+    //Start sync:
+    log_info_string(TAG, "COMPOSED DATA", source_list);
     this->is_syncing = true;
     while (this->is_syncing) {
-
-        //Load file:
         log_info(TAG, "START_SYNC");
-        const long request_last_modified_date = get_file_last_modified_time(PATH);
-        str_builder *builder = read_file_by_str_builder(PATH);
-        const size_t request_data_size = builder->size();
-        const char *request_data = builder->pop();
-        log_info_string(TAG, "COMPOSED DATA", request_data);
 
         //Send data:
-        write(this->output_left_anonymous_gate, request_data, request_data_size);
+        write(this->output_left_anonymous_gate, source_list, size);
         char left_response[BUFFER_SIZE] = {0};
         while (strlen(left_response) == 0) {
             read(this->input_left_anonymous_gate, left_response, BUFFER_SIZE);
@@ -116,28 +116,22 @@ void o_middle_server::sync()
                 read(this->input_right_anonymous_gate, right_response, BUFFER_SIZE);
             }
             log_info_string(TAG, "RIGHT_RESPONSE", right_response);
-            str_hook *right_response_hook = new str_hook(right_response);
-            str_hook_list *chunks = right_response_hook->split_by_comma();
-            char *right_content = chunks->get(0)->to_string();
-            char *right_date = chunks->get(1)->to_string();
-            string::size_type type;
-            const long response_last_modified_time = stol(right_date, &type);
-            if (response_last_modified_time <= request_last_modified_date) {
+            if (is_equals_lists(source_list, right_response)) {
                 this->is_syncing = false;
                 log_info(TAG, "Sync is complete");
             } else {
+                source_list = right_response;
                 ofstream file;
                 file.open(PATH);
-                file << right_content;
+                file << right_response;
                 file.close();
-                system("tar -czvf ../io/middle_server/sample1.tar.gz ../io/middle_server/sample1.txt");
-                log_info_string(TAG, "ARCHIVED DATA!", right_content);
+                log_info_string(TAG, "REFRESHED DATA!", source_list);
             }
             bzero(right_response, BUFFER_SIZE);
         }
         bzero(left_response, BUFFER_SIZE);
     }
-    write(this->output_client_channel, ACCEPT_STATUS, 7);
+    write(this->output_client_channel, source_list, 7);
     char client_response[BUFFER_SIZE] = {0};
     while (strlen(client_response) == 0) {
         read(this->input_client_channel, client_response, BUFFER_SIZE);
