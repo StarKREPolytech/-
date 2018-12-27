@@ -7,18 +7,13 @@
 
 #define BUFFER_SIZE 1024
 
-#define ACCEPT_STATUS "ACCEPT"
-
 /**
  * Interaction.
  */
 
-#define SYNC_REQUEST "SYNC"
+#define MAKE_REQUEST "MAKE"
 
-#define START_SYNC "START SYNC"
-
-#define IS_SYNCING "IS_SYNCING"
-
+#define ACCEPT_STATUS "ACCEPT"
 
 /**
  * Client-server.

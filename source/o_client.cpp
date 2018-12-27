@@ -8,8 +8,11 @@
 #include <arpa/inet.h>
 #include <fcntl.h>
 #include <util/common.h>
+#include <iostream>
 
 using namespace lib4aio;
+
+using namespace std;
 
 #define TAG "O_CLIENT"
 
@@ -32,20 +35,23 @@ void o_client::ask()
 {
     //Send last time:
     int m_socket = socket(AF_INET, SOCK_STREAM, 0);
-    this->call_by_socket(SYNC_REQUEST, 5, m_socket);
-
+    this->call_by_socket(MAKE_REQUEST, 5, m_socket);
     //Receive socket_response:
     const char *socket_response = this->receive_by_socket(m_socket);
-    if (strcmp(socket_response, START_SYNC) == 0 || strcmp(socket_response, IS_SYNCING) == 0) {
-        log_info_string(TAG, "SERVER RESPONSE", socket_response);
+    log_info_string(TAG, "SERVER RESPONSE", socket_response);
+    if (strcmp(socket_response, ACCEPT_STATUS) == 0) {
+        char program[BUFFER_SIZE] = {0};
+        cin >> program;
+        write(this->output_channel, ACCEPT_STATUS, 7);
         char channel_response[BUFFER_SIZE] = {0};
         while (strlen(channel_response) == 0) {
             read(this->input_channel, channel_response, BUFFER_SIZE);
-            log_info_string(TAG, "SYNC_RESPONSE: ", channel_response);
+            log_info_string(TAG, "SERVER_RESPONSE: ", channel_response);
         }
         if (strcmp(channel_response, ACCEPT_STATUS) == 0) {
-            write(this->output_channel, ACCEPT_STATUS, 7);
+            log_info(TAG, "PROGRAM COMPLETED!");
         }
+        bzero(channel_response, BUFFER_SIZE);
     }
     delete socket_response;
 }
