@@ -1,7 +1,7 @@
 #ifndef LIB4AIO_STR_HOOK_LIST_H
 #define LIB4AIO_STR_HOOK_LIST_H
 
-#include <lib4aio_cpp_headers/utils/array_list_utils/array_list.h>
+#include <lib4aio/lib4aio_cpp_headers/utils/array_list_utils/array_list.h>
 
 namespace lib4aio {
 

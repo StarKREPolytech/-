@@ -21,6 +21,8 @@ using namespace std;
 
 void o_right_server::start()
 {
+    log_info(TAG, "START");
+
     while (true) {
         char left_server_request[BUFFER_SIZE] = {0};
         while (strlen(left_server_request) == 0) {
@@ -38,7 +40,7 @@ void o_right_server::start()
             file.open(PATH);
             file << left_server_content;
             file.close();
-            system("tar -czvf ../io/o_right_server/sample1.tar.gz ../io/o_right_server/sample1.txt");
+            system("tar -czvf ../io/right_server/sample1.tar.gz ../io/right_server/sample1.txt");
             log_info_string(TAG, "ARCHIVED DATA!", left_server_content);
         }
         bzero(left_server_request, BUFFER_SIZE);
@@ -49,6 +51,7 @@ void o_right_server::start()
         builder->append(to_string(get_file_last_modified_time(PATH)).c_str());
         const size_t request_data_size = builder->size();
         const char *request_data = builder->pop();
+        log_info_string(TAG, "COMPOSED DATA", request_data);
         write(this->output_middle_anonymous_gate, request_data, request_data_size);
         char right_response[BUFFER_SIZE] = {0};
         while (strlen(right_response) == 0) {

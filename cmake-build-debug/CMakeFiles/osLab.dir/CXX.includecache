@@ -10,7 +10,23 @@
 
 ../header/util/common.h
 
+../libs/lib4aio/lib4aio_cpp_headers/utils/array_list_utils/array_list.h
+functional
+-
+
+../libs/lib4aio/lib4aio_cpp_headers/utils/file_utils/file_reader.h
+
 ../libs/lib4aio/lib4aio_cpp_headers/utils/log_utils/log_utils.h
+
+../libs/lib4aio/lib4aio_cpp_headers/utils/str_builder/str_builder.h
+
+../libs/lib4aio/lib4aio_cpp_headers/utils/str_hook_utils/str_hook/str_hook.h
+ostream
+-
+
+../libs/lib4aio/lib4aio_cpp_headers/utils/str_hook_utils/str_hook_list/str_hook_list.h
+lib4aio/lib4aio_cpp_headers/utils/array_list_utils/array_list.h
+-
 
 ../libs/lib4aio/lib4aio_cpp_headers/utils/string_utils/common.h
 
@@ -36,5 +52,15 @@ strings.h
 lib4aio/lib4aio_cpp_headers/utils/string_utils/common.h
 -
 fstream
+-
+lib4aio/lib4aio_cpp_headers/utils/str_builder/str_builder.h
+-
+lib4aio/lib4aio_cpp_headers/utils/file_utils/file_reader.h
+-
+lib4aio/lib4aio_cpp_headers/utils/str_hook_utils/str_hook/str_hook.h
+-
+lib4aio/lib4aio_cpp_headers/utils/str_hook_utils/str_hook_list/str_hook_list.h
+-
+lib4aio/lib4aio_cpp_headers/utils/array_list_utils/array_list.h
 -
 

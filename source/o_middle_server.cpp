@@ -102,17 +102,18 @@ void o_middle_server::sync()
         builder->append(to_string(request_last_modified_date).c_str());
         const size_t request_data_size = builder->size();
         const char *request_data = builder->pop();
+        log_info_string(TAG, "COMPOSED DATA", request_data);
         write(this->output_left_anonymous_gate, request_data, request_data_size);
         char left_response[BUFFER_SIZE] = {0};
         while (strlen(left_response) == 0) {
             read(this->input_left_anonymous_gate, left_response, BUFFER_SIZE);
         }
-        bzero(left_response, BUFFER_SIZE);
         if (strcmp(left_response, ACCEPT_STATUS) == 0) {
             char right_response[BUFFER_SIZE] = {0};
             while (strlen(right_response) == 0) {
                 read(this->input_right_anonymous_gate, right_response, BUFFER_SIZE);
             }
+            log_info_string(TAG, "RIGHT_RESPONSE", right_response);
             str_hook *right_response_hook = new str_hook(right_response);
             str_hook_list *chunks = right_response_hook->split_by_comma();
             char *right_content = chunks->get(0)->to_string();
@@ -131,6 +132,7 @@ void o_middle_server::sync()
             }
             bzero(right_response, BUFFER_SIZE);
         }
+        bzero(left_response, BUFFER_SIZE);
     }
     write(this->output_client_channel, ACCEPT_STATUS, 7);
     char client_response[BUFFER_SIZE] = {0};

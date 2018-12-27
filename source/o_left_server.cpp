@@ -21,6 +21,7 @@ using namespace std;
 
 void o_left_server::start()
 {
+    log_info(TAG, "START");
     while (true) {
         char middle_server_request[BUFFER_SIZE] = {0};
         while (strlen(middle_server_request) == 0) {
@@ -33,12 +34,13 @@ void o_left_server::start()
         char *middle_server_date_str = chunks->get(1)->to_string();
         string::size_type type;
         const long middle_server_last_modified_time = stol(middle_server_date_str, &type);
+        //TODO: CREATE VARIABLE OF DATE
         if (last_modified_date <= middle_server_last_modified_time ) {
             ofstream file;
             file.open(PATH);
             file << middle_server_content;
             file.close();
-            system("tar -czvf ../io/o_left_server/sample1.tar.gz ../io/o_left_server/sample1.txt");
+            system("tar -czvf ../io/left_server/sample1.tar.gz ../io/left_server/sample1.txt");
             log_info_string(TAG, "ARCHIVED DATA!", middle_server_content);
         }
         bzero(middle_server_request, BUFFER_SIZE);
