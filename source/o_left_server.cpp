@@ -27,7 +27,7 @@ void o_left_server::start()
         while (strlen(middle_server_request) == 0) {
             read(this->middle_server_input_channel, middle_server_request, BUFFER_SIZE);
         }
-        const long last_modified_date = get_file_last_modified_time(PATH);
+        long last_modified_date = get_file_last_modified_time(PATH);
         str_hook *middle_server_request_hook = new str_hook(middle_server_request);
         str_hook_list *chunks = middle_server_request_hook->split_by_comma();
         char *middle_server_content = chunks->get(0)->to_string();
@@ -35,7 +35,9 @@ void o_left_server::start()
         string::size_type type;
         const long middle_server_last_modified_time = stol(middle_server_date_str, &type);
         //TODO: CREATE VARIABLE OF DATE
+
         if (last_modified_date <= middle_server_last_modified_time ) {
+            last_modified_date = middle_server_last_modified_time;
             ofstream file;
             file.open(PATH);
             file << middle_server_content;
@@ -48,7 +50,7 @@ void o_left_server::start()
 
         str_builder *builder = read_file_by_str_builder(PATH);
         builder->append(',');
-        builder->append(to_string(get_file_last_modified_time(PATH)).c_str());
+        builder->append(to_string(last_modified_date).c_str());
         const size_t request_data_size = builder->size();
         const char *request_data = builder->pop();
         write(this->output_right_anonymous_gate, request_data, request_data_size);

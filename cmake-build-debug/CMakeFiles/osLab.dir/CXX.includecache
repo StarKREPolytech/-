@@ -8,6 +8,8 @@
 
 ../header/o_middle_server.h
 
+../header/o_right_server.h
+
 ../header/util/common.h
 
 ../libs/lib4aio/lib4aio_cpp_headers/utils/array_list_utils/array_list.h
@@ -62,5 +64,31 @@ lib4aio/lib4aio_cpp_headers/utils/str_hook_utils/str_hook/str_hook.h
 lib4aio/lib4aio_cpp_headers/utils/str_hook_utils/str_hook_list/str_hook_list.h
 -
 lib4aio/lib4aio_cpp_headers/utils/array_list_utils/array_list.h
+-
+
+/home/ihb/IgorProjects/projects/Os/source/o_right_server.cpp
+o_right_server.h
+-
+cstring
+-
+zconf.h
+-
+string
+-
+fstream
+-
+lib4aio/lib4aio_cpp_headers/utils/log_utils/log_utils.h
+-
+lib4aio/lib4aio_cpp_headers/utils/array_list_utils/array_list.h
+-
+lib4aio/lib4aio_cpp_headers/utils/str_hook_utils/str_hook/str_hook.h
+-
+lib4aio/lib4aio_cpp_headers/utils/str_hook_utils/str_hook_list/str_hook_list.h
+-
+lib4aio/lib4aio_cpp_headers/utils/str_builder/str_builder.h
+-
+lib4aio/lib4aio_cpp_headers/utils/file_utils/file_reader.h
+-
+util/common.h
 -
 

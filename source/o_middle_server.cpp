@@ -122,6 +122,7 @@ void o_middle_server::sync()
             const long response_last_modified_time = stol(right_date, &type);
             if (response_last_modified_time <= request_last_modified_date) {
                 this->is_syncing = false;
+                log_info(TAG, "Sync is complete");
             } else {
                 ofstream file;
                 file.open(PATH);

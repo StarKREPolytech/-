@@ -28,7 +28,7 @@ void o_right_server::start()
         while (strlen(left_server_request) == 0) {
             read(this->left_server_input_channel, left_server_request, BUFFER_SIZE);
         }
-        const long last_modified_date = get_file_last_modified_time(PATH);
+        long last_modified_date = get_file_last_modified_time(PATH);
         str_hook *left_server_request_hook = new str_hook(left_server_request);
         str_hook_list *chunks = left_server_request_hook->split_by_comma();
         char *left_server_content = chunks->get(0)->to_string();
@@ -36,6 +36,7 @@ void o_right_server::start()
         string::size_type type;
         const long left_server_last_modified_time = stol(left_server_date_str, &type);
         if (last_modified_date <= left_server_last_modified_time ) {
+            last_modified_date = left_server_last_modified_time;
             ofstream file;
             file.open(PATH);
             file << left_server_content;
@@ -48,7 +49,7 @@ void o_right_server::start()
 
         str_builder *builder = read_file_by_str_builder(PATH);
         builder->append(',');
-        builder->append(to_string(get_file_last_modified_time(PATH)).c_str());
+        builder->append(to_string(last_modified_date).c_str());
         const size_t request_data_size = builder->size();
         const char *request_data = builder->pop();
         log_info_string(TAG, "COMPOSED DATA", request_data);
