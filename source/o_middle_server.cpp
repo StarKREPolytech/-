@@ -24,7 +24,7 @@ using namespace std;
 
 #define TAG "O_MIDDLE_SERVER"
 
-#define PATH "../io/middle_server/programs.txt"
+#define PATH "../io/middle_server/program.txt"
 
 void o_middle_server::start()
 {
@@ -111,7 +111,7 @@ void o_middle_server::receive_program()
     file.open(PATH);
     file
             << currentTime << "\n"
-            << strlen(program) * sizeof(char) << "bytes\n"
+            << strlen(program) * sizeof(char) << " bytes\n"
             << program;
     file.close();
 

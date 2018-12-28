@@ -41,7 +41,7 @@ void o_right_server::start() {
 
         //Compile file:
         system("gcc  ../io/right_server/sample1.c -o ../io/right_server/sample1");
-        system("rm ..io/right_server/sample1.c");
+        system("rm ../io/right_server/sample1.c");
 
         //Send program to the middle server:
         write(this->output_middle_anonymous_gate, program, BUFFER_SIZE);

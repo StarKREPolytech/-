@@ -1,1 +1,1 @@
-#include<stdio>main(){printf("Hello");}
+main(){printf("H!");}
