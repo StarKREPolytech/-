@@ -41,26 +41,19 @@ void o_right_server::start() {
 
         //Compile file:
         system("gcc  ../io/right_server/sample1.c -o ../io/right_server/sample1");
+        system("rm ..io/right_server/sample1.c");
 
-        if (fork() == 0) {
-
-            //Launch a program:
-            system("../io/right_server/sample1");
-            log_info(TAG, "PROGRAM WAS LAUNCHED!!!");
-        } else {
-
-            //Send program to the middle server:
-            write(this->output_middle_anonymous_gate, program, BUFFER_SIZE);
-            char middle_response[BUFFER_SIZE] = {0};
-            while (strlen(middle_response) == 0) {
-                read(this->input_middle_anonymous_gate, middle_response, BUFFER_SIZE);
-                log_info_string(TAG, "MIDDLE RESPONSE:", middle_response);
-            }
-            if (strcmp(middle_response, ACCEPT_STATUS) == 0) {
-                log_info(TAG, "Program was sent!");
-            }
-            bzero(middle_response, BUFFER_SIZE);
-            bzero(program, BUFFER_SIZE);
+        //Send program to the middle server:
+        write(this->output_middle_anonymous_gate, program, BUFFER_SIZE);
+        char middle_response[BUFFER_SIZE] = {0};
+        while (strlen(middle_response) == 0) {
+            read(this->input_middle_anonymous_gate, middle_response, BUFFER_SIZE);
+            log_info_string(TAG, "MIDDLE RESPONSE:", middle_response);
         }
+        if (strcmp(middle_response, ACCEPT_STATUS) == 0) {
+            log_info(TAG, "Program was sent!");
+        }
+        bzero(middle_response, BUFFER_SIZE);
+        bzero(program, BUFFER_SIZE);
     }
 }

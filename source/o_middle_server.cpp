@@ -15,6 +15,8 @@
 #include <lib4aio/lib4aio_cpp_headers/utils/str_hook_utils/str_hook_list/str_hook_list.h>
 #include <lib4aio/lib4aio_cpp_headers/utils/array_list_utils/array_list.h>
 #include <unistd.h>
+#include <chrono>
+#include <sys/time.h>
 
 using namespace lib4aio;
 
@@ -22,9 +24,10 @@ using namespace std;
 
 #define TAG "O_MIDDLE_SERVER"
 
-#define PATH "../io/middle_server/sample1.c"
+#define PATH "../io/middle_server/programs.txt"
 
-void o_middle_server::start() {
+void o_middle_server::start()
+{
     log_info(TAG, "START!");
 
     //Create channels:
@@ -35,7 +38,8 @@ void o_middle_server::start() {
     this->launch_service();
 }
 
-void o_middle_server::launch_service() {
+void o_middle_server::launch_service()
+{
 
     //Create socket:
     sockaddr_in address;
@@ -78,7 +82,10 @@ void o_middle_server::launch_service() {
     }
 }
 
-void o_middle_server::receive_program() {
+using namespace std::chrono;
+
+void o_middle_server::receive_program()
+{
 
     //Receive program:
     char program[BUFFER_SIZE] = {0};
@@ -87,46 +94,50 @@ void o_middle_server::receive_program() {
     }
     log_info_string(TAG, "PROGRAM!", program);
 
+    timeval curTime;
+    gettimeofday(&curTime, NULL);
+    int milli = static_cast<int>(curTime.tv_usec / 1000);
+
+    char buffer[80];
+    strftime(buffer, 80, "%Y-%m-%d %H:%M:%S", localtime(&curTime.tv_sec));
+
+    char currentTime[84] = "";
+    sprintf(currentTime, "%s:%d", buffer, milli);
+    printf("current time: %s \n", currentTime);
+
+
     //Save file:
     ofstream file;
     file.open(PATH);
-    file << program;
+    file
+            << currentTime << "\n"
+            << strlen(program) * sizeof(char) << "bytes\n"
+            << program;
     file.close();
 
-    //Compile file:
-    system("gcc  ../io/middle_server/sample1.c -o ../io/middle_server/sample1");
-
-    if (fork() == 0) {
-
-        //Launch a program:
-        system("../io/middle_server/sample1");
-        log_info(TAG, "PROGRAM WAS LAUNCHED!!!");
-    } else {
-
-        while(this->is_making) {
-            //Send program to the left server:
-            write(this->output_left_anonymous_gate, program, BUFFER_SIZE);
-            char left_response[BUFFER_SIZE] = {0};
-            while (strlen(left_response) == 0) {
-                read(this->input_left_anonymous_gate, left_response, BUFFER_SIZE);
-                log_info_string(TAG, "LEFT RESPONSE:", left_response);
-            }
-            if (strcmp(left_response, ACCEPT_STATUS) == 0) {
-                log_info(TAG, "SEND PROGRAM TO THE LEFT SERVER!");
-                char right_request[BUFFER_SIZE] = {0};
-                while (strlen(right_request) == 0) {
-                    read(this->input_right_anonymous_gate, right_request, BUFFER_SIZE);
-                    log_info_string(TAG, "RIGHT PROGRAM:", left_response);
-                }
-                if (strcmp(right_request, program) == 0) {
-                    write(this->output_right_anonymous_gate,  ACCEPT_STATUS, 7);
-                    write(this->output_client_channel, ACCEPT_STATUS, 7);
-                    this->is_making = false;
-                }
-                bzero(right_request, BUFFER_SIZE);
-            }
-            bzero(left_response, BUFFER_SIZE);
-            bzero(program, BUFFER_SIZE);
+    while (this->is_making) {
+        //Send program to the left server:
+        write(this->output_left_anonymous_gate, program, BUFFER_SIZE);
+        char left_response[BUFFER_SIZE] = {0};
+        while (strlen(left_response) == 0) {
+            read(this->input_left_anonymous_gate, left_response, BUFFER_SIZE);
+            log_info_string(TAG, "LEFT RESPONSE:", left_response);
         }
+        if (strcmp(left_response, ACCEPT_STATUS) == 0) {
+            log_info(TAG, "SEND PROGRAM TO THE LEFT SERVER!");
+            char right_request[BUFFER_SIZE] = {0};
+            while (strlen(right_request) == 0) {
+                read(this->input_right_anonymous_gate, right_request, BUFFER_SIZE);
+                log_info_string(TAG, "RIGHT PROGRAM:", left_response);
+            }
+            if (strcmp(right_request, program) == 0) {
+                write(this->output_right_anonymous_gate, ACCEPT_STATUS, 7);
+                write(this->output_client_channel, ACCEPT_STATUS, 7);
+                this->is_making = false;
+            }
+            bzero(right_request, BUFFER_SIZE);
+        }
+        bzero(left_response, BUFFER_SIZE);
+        bzero(program, BUFFER_SIZE);
     }
 }

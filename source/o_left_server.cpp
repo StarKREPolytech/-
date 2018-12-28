@@ -39,29 +39,17 @@ void o_left_server::start() {
         file << program;
         file.close();
 
-        //Compile file:
-        system("gcc  ../io/left_server/sample1.c -o ../io/left_server/sample1");
-
-        if (fork() == 0) {
-
-            //Launch a program:
-            system("../io/left_server/sample1");
-            log_info(TAG, "PROGRAM WAS LAUNCHED!!!");
-        } else {
-
-            //Send program to the right server:
-            write(this->output_right_anonymous_gate, program, BUFFER_SIZE);
-            char right_response[BUFFER_SIZE] = {0};
-            while (strlen(right_response) == 0) {
-                read(this->input_right_anonymous_gate, right_response, BUFFER_SIZE);
-                log_info_string(TAG, "RIGHT RESPONSE:", right_response);
-            }
-            if (strcmp(right_response, ACCEPT_STATUS) == 0) {
-                log_info(TAG, "Program was sent!");
-            }
-            bzero(right_response, BUFFER_SIZE);
-            bzero(program, BUFFER_SIZE);
+        //Send program to the right server:
+        write(this->output_right_anonymous_gate, program, BUFFER_SIZE);
+        char right_response[BUFFER_SIZE] = {0};
+        while (strlen(right_response) == 0) {
+            read(this->input_right_anonymous_gate, right_response, BUFFER_SIZE);
+            log_info_string(TAG, "RIGHT RESPONSE:", right_response);
         }
-
+        if (strcmp(right_response, ACCEPT_STATUS) == 0) {
+            log_info(TAG, "Program was sent!");
+        }
+        bzero(right_response, BUFFER_SIZE);
+        bzero(program, BUFFER_SIZE);
     }
 }
