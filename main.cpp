@@ -60,9 +60,9 @@ int main() {
                 right_server->start();
             }
         } else {
-            middle_server->start();
+            client->start();
         }
     } else {
-        client->start();
+        middle_server->start();
     }
 }

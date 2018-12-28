@@ -17,8 +17,6 @@ public:
 
 private:
 
-    bool is_syncing = false;
-
     int output_client_channel = 0;
 
     int input_client_channel = 0;

@@ -47,6 +47,7 @@ CMakeFiles/osLab.dir/source/o_right_server.cpp.o: ../source/o_right_server.cpp
 
 CMakeFiles/osLab.dir/source/util/common.cpp.o: ../header/util/common.h
 CMakeFiles/osLab.dir/source/util/common.cpp.o: ../libs/lib4aio/lib4aio_cpp_headers/utils/array_list_utils/array_list.h
+CMakeFiles/osLab.dir/source/util/common.cpp.o: ../libs/lib4aio/lib4aio_cpp_headers/utils/log_utils/log_utils.h
 CMakeFiles/osLab.dir/source/util/common.cpp.o: ../libs/lib4aio/lib4aio_cpp_headers/utils/str_builder/str_builder.h
 CMakeFiles/osLab.dir/source/util/common.cpp.o: ../libs/lib4aio/lib4aio_cpp_headers/utils/str_hook_utils/str_hook/str_hook.h
 CMakeFiles/osLab.dir/source/util/common.cpp.o: ../libs/lib4aio/lib4aio_cpp_headers/utils/str_hook_utils/str_hook_list/str_hook_list.h

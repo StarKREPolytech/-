@@ -26,6 +26,7 @@ void o_right_server::start()
         char left_server_request[BUFFER_SIZE] = {0};
         while (strlen(left_server_request) == 0) {
             read(this->left_server_input_channel, left_server_request, BUFFER_SIZE);
+            log_info_string(TAG, "LEFT REQUEST", left_server_request);
         }
         str_builder *builder = read_file_by_str_builder(PATH);
         char *source_list = builder->pop();
@@ -42,8 +43,9 @@ void o_right_server::start()
         char middle_response[BUFFER_SIZE] = {0};
         while (strlen(middle_response) == 0) {
             read(this->input_middle_anonymous_gate, middle_response, BUFFER_SIZE);
+            log_info_string(TAG, "MIDDLE SERVER RESPONSE", middle_response);
         }
-        if (strcmp(middle_response, ACCEPT_STATUS)) {
+        if (strcmp(middle_response, ACCEPT_STATUS) == 0) {
             log_info(TAG, "OK!");
         }
     }

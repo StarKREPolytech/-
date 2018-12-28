@@ -5,6 +5,8 @@ class o_client {
 
 public:
 
+    explicit o_client();
+
     void start();
 
 private:

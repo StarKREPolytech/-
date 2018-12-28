@@ -39,6 +39,9 @@ void o_middle_server::start()
     }
 }
 
+
+bool is_syncing = false;
+
 void o_middle_server::launch_service()
 {
     //Create socket:
@@ -68,11 +71,13 @@ void o_middle_server::launch_service()
         if (strlen(buffer) > 0) {
             log_info_string(TAG, "GET_REQUEST:", buffer);
             if (strcmp(buffer, GET_REQUEST) == 0) {
-                if (this->is_syncing) {
+                if (is_syncing) {
                     send(m_socket, IS_SYNC, 32, 0);
                 } else {
                     send(m_socket, START_SYNC, 32, 0);
-                    this->sync();
+                    if (!is_syncing) {
+                        this->sync();
+                    }
                 }
                 bzero(buffer, BUFFER_SIZE);
             }
@@ -85,7 +90,9 @@ void o_middle_server::listen_file()
 {
     while (true) {
         sleep(10);
-        this->sync();
+        if (!is_syncing) {
+            this->sync();
+        }
     }
 }
 
@@ -98,8 +105,8 @@ void o_middle_server::sync()
 
     //Start sync:
     log_info_string(TAG, "COMPOSED DATA", source_list);
-    this->is_syncing = true;
-    while (this->is_syncing) {
+    is_syncing = true;
+    while (is_syncing) {
         log_info(TAG, "START_SYNC");
 
         //Send data:
@@ -107,6 +114,7 @@ void o_middle_server::sync()
         char left_response[BUFFER_SIZE] = {0};
         while (strlen(left_response) == 0) {
             read(this->input_left_anonymous_gate, left_response, BUFFER_SIZE);
+            log_info_string(TAG, "LEFT RESPONSE", left_response);
         }
         if (strcmp(left_response, ACCEPT_STATUS) == 0) {
 
@@ -116,8 +124,8 @@ void o_middle_server::sync()
                 read(this->input_right_anonymous_gate, right_response, BUFFER_SIZE);
             }
             log_info_string(TAG, "RIGHT_RESPONSE", right_response);
-            if (add_to_list(&source_list, right_response)) {
-                this->is_syncing = false;
+            if (!add_to_list(&source_list, right_response)) {
+                is_syncing = false;
                 log_info(TAG, "Sync is complete");
             } else {
                 ofstream file;
@@ -130,6 +138,8 @@ void o_middle_server::sync()
         }
         bzero(left_response, BUFFER_SIZE);
     }
+    log_info(TAG, "SYNC IS COMPLETE!");
+    log_info_string(TAG, "RESULT LIST", source_list);
     write(this->output_client_channel, source_list, BUFFER_SIZE);
     char client_response[BUFFER_SIZE] = {0};
     while (strlen(client_response) == 0) {

@@ -17,9 +17,9 @@ using namespace std;
 
 void o_client::start()
 {
-    log_info(TAG, "START!");
     this->output_channel = open(CHANNEL_1_NAME, O_WRONLY);
     this->input_channel = open(CHANNEL_2_NAME, O_RDONLY);
+    log_info(TAG, "START!");
     sleep(5);
     log_info(TAG, "ASK!");
     this->ask();
@@ -38,7 +38,7 @@ void o_client::ask()
     log_info_string(TAG, "SERVER RESPONSE", socket_response);
 
     //Check status:
-    if (strcmp(socket_response, ACCEPT_STATUS) == 0) {
+    if (strcmp(socket_response, IS_SYNC) == 0 || strcmp(socket_response, START_SYNC) == 0) {
 
         //Wait response:
         char channel_response[BUFFER_SIZE] = {0};
@@ -77,4 +77,8 @@ char *o_client::receive_by_socket(const int m_socket)
     char *result = new_string(response);
     bzero(response, BUFFER_SIZE);
     return result;
+}
+
+o_client::o_client()
+{
 }
